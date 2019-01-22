@@ -1,0 +1,103 @@
+<p>In below experiment I used two code blocks in python to test, one is <code class="highlighter-rouge">list.sort()</code> and <code class="highlighter-rouge">set(list)</code>. Below code is capturing all the time it took using python <code class="highlighter-rouge">time</code> library. Finally, I have plotted some graphs to write final notes about this experiment.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">time</span>
+<span class="kn">import</span> <span class="nn">random</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="n">plt</span>
+<span class="kn">import</span> <span class="nn">statistics</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="n">np</span>
+</code></pre></div></div>
+
+<h3 id="experiment-setup">Experiment setup</h3>
+<p>I am trying to create a random integer list of size 10 million, conducting 10 test cases. Also 5 seconds sleep time on every experiment</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">MIN</span><span class="p">,</span> <span class="n">MAX</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1000000000</span>
+<span class="n">N</span> <span class="o">=</span> <span class="mi">10000000</span>
+<span class="n">TEST</span> <span class="o">=</span> <span class="mi">10</span>
+<span class="n">SLEEP_TIME</span> <span class="o">=</span> <span class="mi">5</span>
+</code></pre></div></div>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">change</span> <span class="o">=</span> <span class="bp">False</span>
+<span class="n">stats</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">while</span> <span class="bp">True</span><span class="p">:</span>
+    <span class="n">e</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">lst</span> <span class="o">=</span> <span class="p">[</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="n">MIN</span><span class="p">,</span> <span class="n">MAX</span><span class="p">)</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">N</span><span class="p">)]</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">TEST</span><span class="p">):</span>
+        <span class="s">"""
+            change --&gt; True means list sorting experiment is going on
+                       else list to set experiment is going on
+        """</span>
+        <span class="n">t</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">process_time</span><span class="p">()</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">change</span><span class="p">:</span>
+            <span class="n">lst</span><span class="o">.</span><span class="n">sort</span><span class="p">()</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">set_from_lst</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="n">lst</span><span class="p">)</span>
+        <span class="n">e</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">time</span><span class="o">.</span><span class="n">process_time</span><span class="p">()</span> <span class="o">-</span> <span class="n">t</span><span class="p">)</span>
+        <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="n">SLEET_TIME</span><span class="p">)</span>
+    <span class="n">stats</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">e</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">change</span><span class="p">:</span>
+        <span class="k">break</span>
+    <span class="n">change</span> <span class="o">=</span> <span class="bp">True</span>
+</code></pre></div></div>
+
+<h3 id="anaysis">Anaysis</h3>
+
+<p><strong>Bar plot on Both experiments</strong></p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">height</span> <span class="o">=</span> <span class="p">[</span><span class="n">statistics</span><span class="o">.</span><span class="n">median</span><span class="p">(</span><span class="n">stats</span><span class="p">[</span><span class="mi">0</span><span class="p">]),</span> <span class="n">statistics</span><span class="o">.</span><span class="n">median</span><span class="p">(</span><span class="n">stats</span><span class="p">[</span><span class="mi">1</span><span class="p">])]</span>
+<span class="n">bars</span> <span class="o">=</span> <span class="p">(</span><span class="s">'Sorting a list'</span><span class="p">,</span> <span class="s">'Lst to set'</span><span class="p">)</span>
+<span class="n">y_pos</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">bars</span><span class="p">))</span>
+ 
+<span class="c"># Create bars and choose color</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">y_pos</span><span class="p">,</span> <span class="n">height</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="p">(</span><span class="mf">0.5</span><span class="p">,</span><span class="mf">0.1</span><span class="p">,</span><span class="mf">0.5</span><span class="p">,</span><span class="mf">0.6</span><span class="p">))</span>
+ 
+<span class="c"># Add title and axis names</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s">'Sorting list VS Set construction from List'</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s">'Experiments'</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s">'Time in seconds'</span><span class="p">)</span>
+ 
+<span class="c"># Limits for the Y axis</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="nb">max</span><span class="p">(</span><span class="nb">max</span><span class="p">(</span><span class="n">e</span><span class="p">),</span> <span class="nb">max</span><span class="p">(</span><span class="n">s</span><span class="p">)))</span>
+ 
+<span class="c"># Create names</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">(</span><span class="n">y_pos</span><span class="p">,</span> <span class="n">bars</span><span class="p">)</span>
+ 
+<span class="c"># Show graphic</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</code></pre></div></div>
+
+<p><img src="/assets/output_8_0.png" alt="png" /></p>
+
+<p><strong>Time taken across all 10 experiments</strong></p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">stats</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">stats</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">([</span><span class="s">'sorting a list'</span><span class="p">,</span> <span class="s">'lst to set'</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s">"Number of experiments"</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s">"Time in seconds"</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">10</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s">"Time taken to complete for 10 experiments"</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</code></pre></div></div>
+
+<p><img src="/assets/output_10_0.png" alt="png" /></p>
+
+<ul>
+  <li>How many seconds less it takes to sort an array compared to constructing a set from list ?</li>
+  <li>Which one is faster among set construction from list or sorting a list ?</li>
+</ul>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="s">"Sorting a list is {} seconds faster"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">statistics</span><span class="o">.</span><span class="n">median</span><span class="p">(</span><span class="n">stats</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span> <span class="o">-</span> <span class="n">statistics</span><span class="o">.</span><span class="n">median</span><span class="p">(</span><span class="n">stats</span><span class="p">[</span><span class="mi">0</span><span class="p">]))</span>
+</code></pre></div></div>
+
+<p>‘Sorting a list is 1.0382620000000031 seconds faster ‘</p>
+
+<h1 id="notes">Notes</h1>
+<ul>
+  <li>Sorting a list always takes less time compared to set construction from the list.</li>
+  <li>Not much but few seconds difference is there. So we can safely assume approximately both will perform same</li>
+  <li>Searching in a sorted list can happen in <code class="highlighter-rouge">O(log2(n))</code> time.</li>
+  <li>Searching in a set will be <code class="highlighter-rouge">O(1)</code> time.</li>
+  <li>This experiment tested in python, but it most likely it will be true for any other languages.</li>
+</ul>
+
+<p>Let me know, what do you think by commenting on the post.</p>
