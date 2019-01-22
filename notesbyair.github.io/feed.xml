@@ -1,5 +1,366 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="3.8.3">Jekyll</generator><link href="https://notesbyair.github.io//feed.xml" rel="self" type="application/atom+xml" /><link href="https://notesbyair.github.io//" rel="alternate" type="text/html" hreflang="en" /><updated>2018-12-28T16:18:22-05:00</updated><id>https://notesbyair.github.io//</id><title type="html">Notes by Air</title><subtitle>My notes on CS, Travel and Projects
-</subtitle><author><name>Ajay Ramesh</name><email>ajaycs14@gmail.com</email></author><entry><title type="html">A little experiment to know performance among sorting versus set construction</title><link href="https://notesbyair.github.io//blog/2018-12-12-List-sorting-time-vs-set-construction-time/" rel="alternate" type="text/html" title="A little experiment to know performance among sorting versus set construction" /><published>2018-12-12T00:00:00-05:00</published><updated>2018-12-12T00:00:00-05:00</updated><id>https://notesbyair.github.io//blog/List-sorting-time-vs-set-construction-time</id><content type="html" xml:base="https://notesbyair.github.io//blog/2018-12-12-List-sorting-time-vs-set-construction-time/">&lt;p&gt;In below experiment I used two code blocks in python to test, one is &lt;code class=&quot;highlighter-rouge&quot;&gt;list.sort()&lt;/code&gt; and &lt;code class=&quot;highlighter-rouge&quot;&gt;set(list)&lt;/code&gt;. Below code is capturing all the time it took using python &lt;code class=&quot;highlighter-rouge&quot;&gt;time&lt;/code&gt; library. Finally, I have plotted some graphs to write final notes about this experiment.&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="3.8.3">Jekyll</generator><link href="https://notesbyair.github.io//feed.xml" rel="self" type="application/atom+xml" /><link href="https://notesbyair.github.io//" rel="alternate" type="text/html" hreflang="en" /><updated>2019-01-21T22:36:29-06:00</updated><id>https://notesbyair.github.io//</id><title type="html">Notes by Air</title><subtitle>My notes on CS, Travel and Projects
+</subtitle><author><name>Ajay Ramesh</name><email>ajaycs14@gmail.com</email></author><entry><title type="html">Quick walk-through on S.O.L.I.D design principle</title><link href="https://notesbyair.github.io//blog/2019-01-07-SOLID/" rel="alternate" type="text/html" title="Quick walk-through on S.O.L.I.D design principle" /><published>2019-01-07T00:00:00-06:00</published><updated>2019-01-07T00:00:00-06:00</updated><id>https://notesbyair.github.io//blog/SOLID</id><content type="html" xml:base="https://notesbyair.github.io//blog/2019-01-07-SOLID/">&lt;p&gt;Five principles of SOLID are below,  most of them are promoted by &lt;a href=&quot;https://en.wikipedia.org/wiki/SOLID&quot;&gt;Rober C. Martin&lt;/a&gt;. Let me explain with simple examples.&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;Single-responsiblity principle&lt;/li&gt;
+  &lt;li&gt;Open-closed principle&lt;/li&gt;
+  &lt;li&gt;Liskov substitution principle&lt;/li&gt;
+  &lt;li&gt;Interface segregation principle&lt;/li&gt;
+  &lt;li&gt;Dependency Inversion Principle&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Not a thumb rule, but applying above principles helps to maintain software for longer period of time with less cost.&lt;/p&gt;
+
+&lt;h2 id=&quot;1-single-responsiblity-principle&quot;&gt;1. Single-responsiblity principle&lt;/h2&gt;
+
+&lt;p&gt;Make it simple to understand easily by others and easy to debug. So here the concept is to keep Objects to do one and only one thing.&lt;/p&gt;
+
+&lt;h5 id=&quot;scenario&quot;&gt;Scenario&lt;/h5&gt;
+&lt;p&gt;Write objects where it mimics a notepad and methods to output the in json or pdf format.&lt;/p&gt;
+
+&lt;h4 id=&quot;dos&quot;&gt;Do’s&lt;/h4&gt;
+
+&lt;div class=&quot;language-java highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Doc&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;kd&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;String&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;content&lt;/span&gt;
+    &lt;span class=&quot;nf&quot;&gt;Doc&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;content&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;content&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;content&lt;/span&gt;
+    &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;div class=&quot;language-java highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c1&quot;&gt;// Report in seperate class&lt;/span&gt;
+&lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Report&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+
+    &lt;span class=&quot;kd&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;String&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;content&lt;/span&gt;
+    &lt;span class=&quot;kd&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;String&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;reportJson&lt;/span&gt;
+    &lt;span class=&quot;kd&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;String&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;reportPdf&lt;/span&gt;
+    
+    
+    &lt;span class=&quot;nf&quot;&gt;Report&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;doc&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt; 
+        &lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;doc&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;doc&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;reportJson&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;json&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;()&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;report_pdf&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;pdf&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;()&lt;/span&gt;
+     &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+    
+    &lt;span class=&quot;kd&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;json&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt; 
+        &lt;span class=&quot;c1&quot;&gt;// json encoding code&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; 
+    &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+    
+    &lt;span class=&quot;kd&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;pdf&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt; 
+        &lt;span class=&quot;c1&quot;&gt;// pdf encoding code&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; 
+    &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;dont&quot;&gt;Don’t&lt;/h3&gt;
+
+&lt;div class=&quot;language-java highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Doc&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;kd&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;String&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;content&lt;/span&gt;
+    &lt;span class=&quot;kd&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;String&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;reportJson&lt;/span&gt;
+    &lt;span class=&quot;kd&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;String&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;reportPdf&lt;/span&gt;
+    
+    &lt;span class=&quot;nf&quot;&gt;Doc&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;content&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;content&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;content&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;reportJson&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;json&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;()&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;report_pdf&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;pdf&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;()&lt;/span&gt;
+    &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+    
+    &lt;span class=&quot;kd&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;json&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt; 
+        &lt;span class=&quot;c1&quot;&gt;// json encoding code&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; 
+    &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+    
+    &lt;span class=&quot;kd&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;pdf&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt; 
+        &lt;span class=&quot;c1&quot;&gt;// pdf encoding code&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; 
+    &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;span style=&quot;color:red&quot;&gt; Why ? &lt;/span&gt; Since generating report in different format will change from time to time, keeping it in Doc class would not be good idea, instead, keep Doc class just for storing the content of the Doc.&lt;/p&gt;
+
+&lt;h4 id=&quot;notes&quot;&gt;Notes&lt;/h4&gt;
+&lt;ul&gt;
+  &lt;li&gt;There is nothing wrong fundamentally in above code, but if you follow you SOLID design then it will be more maintainable and less buggy.&lt;/li&gt;
+  &lt;li&gt;Keep classes to have Single responsiblity.&lt;/li&gt;
+  &lt;li&gt;&lt;span style=&quot;color:red&quot;&gt; Caution: &lt;/span&gt; The above example is just to illustrate the Principle of Single Responsibility.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;2-open-closed-principle&quot;&gt;2. Open-closed Principle&lt;/h2&gt;
+
+&lt;p&gt;“Software entities (classes, modules, functions, etc.) should be open for extension, but closed for modification.”&lt;/p&gt;
+
+&lt;p&gt;&lt;b&gt;Scenario:&lt;/b&gt; Imagine you are building a MS Office word 2020, call it as &lt;strong&gt;MSWord2020&lt;/strong&gt;. The above code is very old version has just two types of export options(pdf, json), but new MSWord2020 has some new features:
+    - such as text to speech. 
+    - etc.
+Also keep in mind, to add one more feature in MSWord2030 version. How will do you design you Objects ?&lt;/p&gt;
+
+&lt;h4 id=&quot;dos-1&quot;&gt;Do’s&lt;/h4&gt;
+
+&lt;div class=&quot;language-java highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kd&quot;&gt;interface&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;doc&lt;/span&gt; 
+&lt;span class=&quot;o&quot;&gt;{&lt;/span&gt; 
+	&lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;display&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;String&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;content&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt; 
+&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt; 
+
+&lt;span class=&quot;kd&quot;&gt;interface&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;doc_feature1&lt;/span&gt; 
+&lt;span class=&quot;o&quot;&gt;{&lt;/span&gt; 
+	&lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;feature1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;String&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;content&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt; 
+&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt; 
+
+&lt;span class=&quot;kd&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;MSWord2020&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;implements&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;doc&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;doc_feature1&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;{&lt;/span&gt; 
+    
+	&lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;display&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;String&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;content&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; 
+	&lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;  &lt;span class=&quot;o&quot;&gt;...&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt; 
+    
+    &lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;feature1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;String&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;content&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; 
+	&lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;  &lt;span class=&quot;o&quot;&gt;...&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt; 
+
+&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;strong&gt;Add new feature in 2030:&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Now think how to deal with new MSWord2030 version, if you think you will provide all features of MSWord2020, then it is better to extend the MSWord2020, then implement new interface features. Something like below&lt;/p&gt;
+
+&lt;div class=&quot;language-java highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kd&quot;&gt;interface&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;doc_feature2&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;feature2&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;String&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;content&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;kd&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;MSWord2030&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;extends&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;MSWord2020&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;implements&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;doc_feature2&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; 
+&lt;span class=&quot;o&quot;&gt;{&lt;/span&gt; 
+    &lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;feature2&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;String&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;content&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; 
+    &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;  &lt;span class=&quot;o&quot;&gt;...&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt; 
+
+&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h4 id=&quot;dont-1&quot;&gt;Don’t&lt;/h4&gt;
+
+&lt;p&gt;&lt;b&gt; you can modify the original class to add new feature 2, like below&lt;/b&gt;&lt;/p&gt;
+&lt;div class=&quot;language-java highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kd&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Doc&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;display&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;String&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;content&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{}&lt;/span&gt;
+    &lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;feature1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;String&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;content&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{}&lt;/span&gt;
+    &lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;feature3&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;String&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;content&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{}&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p style=&quot;color:red&quot;&gt; Caution:  This code does not obey Rule 1, i.e, single reponsiblity principle &lt;/p&gt;
+
+&lt;h4 id=&quot;notes-1&quot;&gt;Notes:&lt;/h4&gt;
+&lt;ul&gt;
+  &lt;li&gt;Take a look at the don’t part, you see you might need to modify the original class. So &lt;b&gt; avoid it. &lt;/b&gt;.&lt;/li&gt;
+  &lt;li&gt;Its always better to program your code in Interfaces and apply inheritance where possible.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;3-liskov-substitution-principle&quot;&gt;3. Liskov substitution principle&lt;/h2&gt;
+
+&lt;p&gt;This is most import and tricky rule to understand, I read several blogs and guides(menioned those links above). Its quite difficult for me to explain in detail but let me try in short.&lt;/p&gt;
+
+&lt;h4 id=&quot;pre-requirement-for-this-rule&quot;&gt;Pre-requirement for this rule&lt;/h4&gt;
+&lt;ul&gt;
+  &lt;li&gt;Are you implementing an interface ? If Yes, you must test this rule throughly&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;Rule:&lt;/strong&gt;
+Any class, S, can be used to replace a class, B, if and only if, S is a subtype of B.&lt;/p&gt;
+
+&lt;div class=&quot;language-java highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;interface&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Human&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;publi&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;eat&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;();&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Robot&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;extends&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Human&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+     &lt;span class=&quot;c1&quot;&gt;// can robot eat ? &lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+    
+&lt;span class=&quot;n&quot;&gt;Human&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;obj1&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Human&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;()&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;Human&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;obj2&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Robot&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;()&lt;/span&gt; 
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;If you apply the rule S is Human and B is Robot, suppose if you replace B with S(meaning, robot with human) then it does not make sense to many operations, such as eating method of human. So one way to avoid is to like below..&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Don’t&lt;/strong&gt;&lt;/p&gt;
+
+&lt;div class=&quot;language-java highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;interface&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Human&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;publi&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;eat&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;();&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;HumanoidRobot&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;extends&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Human&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;c1&quot;&gt;// Humanoid Robot  - A humanoid is something that has an appearance &lt;/span&gt;
+    &lt;span class=&quot;c1&quot;&gt;// resembling a human without actually being one.&lt;/span&gt;
+    &lt;span class=&quot;c1&quot;&gt;// can robot eat ? No&lt;/span&gt;
+    &lt;span class=&quot;nd&quot;&gt;@override&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;publi&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;eat&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;c1&quot;&gt;// do nothing&lt;/span&gt;
+    &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;strong&gt;Liskov Substitution Principle&lt;/strong&gt; states that:&lt;/p&gt;
+
+&lt;p&gt;If a class, S, is a subtype of a class, B, then S can be used to replace all instances of B
+without changing the behaviors of a program. The logic behind this is straightforward. If S is a subtype of B, then it can be expected that S will have the same behaviors as B. Therefore, S can be used in place of B and it would not affect the software. This means that inheritance can be tested by applying substitution.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Solution&lt;/strong&gt;&lt;/p&gt;
+&lt;div class=&quot;language-java highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;interface&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Everything&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;run&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt; 
+&lt;span class=&quot;c1&quot;&gt;// similar to Object class(root class, it has most generalized methods) in Java &lt;/span&gt;
+
+&lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;HumanoidRobot&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;extends&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Everything&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt; 
+    &lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;run&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt; 
+        &lt;span class=&quot;c1&quot;&gt;// code to run using batteries.&lt;/span&gt;
+    &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Human&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;extends&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Everything&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;run&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt; 
+        &lt;span class=&quot;c1&quot;&gt;// code to run using physical streangth.&lt;/span&gt;
+    &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;c1&quot;&gt;// Example:&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;Everything&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;ev&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Robot&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;()&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;Everything&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;ev&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Human&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;()&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;// if you apply the substition rule it satisfies, since both does the run operation but differently. &lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;strong&gt;Notes&lt;/strong&gt;:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;a href=&quot;https://www.coursera.org/learn/design-patterns&quot;&gt;The base class is the more generalized class, and therefore, its attributes and behaviors should reflect it. The names given to the attributes and methods, as well as the implementation of each method must be broad enough that all subclasses can use them.&lt;/a&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;a href=&quot;https://www.coursera.org/learn/design-patterns&quot;&gt;If inheritance is not used correctly, it can lead to a violation of the “Liskov Substitution Principle”. This principle uses substitution to determine whether or not inheritance has been properly used.&lt;/a&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://www.coursera.org/learn/design-patterns&quot;&gt;These rules are not programmatically enforced by any object-oriented language. In fact, overriding a base class’s behaviors can have advantages. Subclasses can improve the performance of behaviours of its base class, without changing the expected results of said behavior.&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Another example:&lt;/strong&gt;  &lt;a href=&quot;https://www.coursera.org/learn/design-patterns&quot;&gt;let’s take a look at a class that is an abstraction of a department store. The base class may implement a naive searching algorithm that, in the worst case, iterates through the entire list of the items that the store sells. A subclass could override this method and provide a better search algorithm. Although the approach that the subclass takes to searching is different, the expected behavior and outcome is the same.&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h1 id=&quot;4-interface-segregation-principle&quot;&gt;4.  Interface Segregation Principle&lt;/h1&gt;
+
+&lt;p&gt;Suppose you have an interface for a Robot, operations include run, fight, walk, swim, shoot. Now another company wants to use your code base for Robot and extend where the Robot can Speak. But here is the problem the company don’t want to implement swim, fight and shoot operations. So company writes something like below -&lt;/p&gt;
+
+&lt;h3 id=&quot;dont-2&quot;&gt;&lt;strong&gt;Don’t&lt;/strong&gt;&lt;/h3&gt;
+&lt;div class=&quot;language-java highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;
+&lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;interface&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Robot&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+     &lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;run&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;();&lt;/span&gt;
+     &lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;shoot&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;();&lt;/span&gt;
+     &lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;swim&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;();&lt;/span&gt;
+     &lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;fight&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;();&lt;/span&gt;
+     &lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;walk&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;();&lt;/span&gt;
+ &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;c1&quot;&gt;// company A wants to extend the Robot to add Speaking feature&lt;/span&gt;
+
+
+&lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;SpeakingRobot&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;extends&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Robot&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+     &lt;span class=&quot;nd&quot;&gt;@Overrides&lt;/span&gt; 
+     &lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;run&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+         &lt;span class=&quot;c1&quot;&gt;// .. inherits from Robot&lt;/span&gt;
+     &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+    
+     &lt;span class=&quot;nd&quot;&gt;@Overrides&lt;/span&gt; 
+     &lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;shoot&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+         &lt;span class=&quot;c1&quot;&gt;// do nothing &lt;/span&gt;
+         &lt;span class=&quot;c1&quot;&gt;// return;&lt;/span&gt;
+     &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+    
+     &lt;span class=&quot;nd&quot;&gt;@Overrides&lt;/span&gt; 
+     &lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;swim&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+          &lt;span class=&quot;c1&quot;&gt;// do nothing &lt;/span&gt;
+         &lt;span class=&quot;c1&quot;&gt;// return;&lt;/span&gt;
+     &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+    
+     &lt;span class=&quot;nd&quot;&gt;@Overrides&lt;/span&gt; 
+     &lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;fight&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(){&lt;/span&gt;
+          &lt;span class=&quot;c1&quot;&gt;// do nothing &lt;/span&gt;
+         &lt;span class=&quot;c1&quot;&gt;// return;&lt;/span&gt;
+     &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+    
+     &lt;span class=&quot;nd&quot;&gt;@Overrides&lt;/span&gt; 
+     &lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;walk&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+         &lt;span class=&quot;c1&quot;&gt;// .. inherits from Robot&lt;/span&gt;
+     &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+    
+     &lt;span class=&quot;nd&quot;&gt;@Overrides&lt;/span&gt; 
+     &lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;speak&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;c1&quot;&gt;// code to speak&lt;/span&gt;
+     &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+ &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+
+
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;What is the problem?&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;You are making client or company to implement the operations forcefully. So in order avoid this we need to have interface segregation principle. Its quite simple, that &lt;strong&gt;no class should be forced to depend on methods it does not use.&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;do&quot;&gt;Do&lt;/h3&gt;
+
+&lt;div class=&quot;language-java highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kd&quot;&gt;interface&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Robot&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;c1&quot;&gt;// very common features, every client must implement are below.&lt;/span&gt;
+    &lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;run&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;();&lt;/span&gt;
+    &lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;walk&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;();&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;kd&quot;&gt;interface&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;ShootingRobot&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;extends&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Robot&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;shoot&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;();&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;kd&quot;&gt;interface&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;SwimmingRobot&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;extends&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Robot&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;swim&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;();&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;kd&quot;&gt;interface&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;FightingRobot&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;extends&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Robot&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;fight&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;();&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;kd&quot;&gt;class&lt;/span&gt;  &lt;span class=&quot;nc&quot;&gt;SpeakingRobot&lt;/span&gt;  &lt;span class=&quot;kd&quot;&gt;implements&lt;/span&gt;  &lt;span class=&quot;n&quot;&gt;Robot&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+
+
+    &lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;speak&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;c1&quot;&gt;// code to speak&lt;/span&gt;
+    &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+
+
+    &lt;span class=&quot;nd&quot;&gt;@Override&lt;/span&gt;
+    &lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;run&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;c1&quot;&gt;// code to run &lt;/span&gt;
+    &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+
+    &lt;span class=&quot;nd&quot;&gt;@Override&lt;/span&gt;
+    &lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;walk&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;c1&quot;&gt;// code to walk&lt;/span&gt;
+    &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h1 id=&quot;5-dependency-inversion-principle&quot;&gt;5. Dependency Inversion Principle&lt;/h1&gt;
+
+&lt;p&gt;Wikipedia states the principle as:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;High-level modules should not depend on low-level modules. Both should depend on abstractions.&lt;/li&gt;
+  &lt;li&gt;Abstractions should not depend on details. Details should depend on abstractions.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Quite easy to understand using examples&lt;/p&gt;
+
+&lt;p&gt;First, Take a look at &lt;a href=&quot;https://docs.oracle.com/javase/7/docs/api/index.html?java/lang/Object.html&quot;&gt;Java Object Class: Root class to all objects&lt;/a&gt;. For example, Take Number, String, Double etc Objects in java extends Object class.&lt;/p&gt;
+
+&lt;p&gt;All above principles apply to this one. Here suppose you have Robot interface, then all objects of Robot should be referring to an abstraction rather than the concrete implementation. Referring to the above code:&lt;/p&gt;
+
+&lt;h4 id=&quot;dos-2&quot;&gt;Do’s&lt;/h4&gt;
+&lt;div class=&quot;language-java highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;Robot&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;r&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;SpeakingRobot&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;()&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h4 id=&quot;dont-3&quot;&gt;Don’t&lt;/h4&gt;
+&lt;div class=&quot;language-java highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;SpeakingRobot&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;r&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;SpeakingRobot&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;()&lt;/span&gt; 
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;SpeakingRobot class is an actual implementation(low-level class), so any object which might change in future should depend on abstractions(Robot interface is high-level abstraction here).&lt;/p&gt;
+
+&lt;h4 id=&quot;references&quot;&gt;References:&lt;/h4&gt;
+&lt;ul&gt;
+  &lt;li&gt;https://dzone.com/articles/the-liskov-substitution-principle-with-examples&lt;/li&gt;
+  &lt;li&gt;https://hackernoon.com/liskov-substitution-principle-a982551d584a&lt;/li&gt;
+  &lt;li&gt;http://web.archive.org/web/20151128004108/http://www.objectmentor.com/resources/articles/lsp.pdf&lt;/li&gt;
+  &lt;li&gt;https://stackoverflow.com/questions/56860/what-is-an-example-of-the-liskov-substitution-principle&lt;/li&gt;
+  &lt;li&gt;https://www.coursera.org/learn/design-patterns&lt;/li&gt;
+&lt;/ul&gt;</content><author><name>Ajay Ramesh</name><email>ajaycs14@gmail.com</email></author><summary type="html">Five principles of SOLID are below, most of them are promoted by Rober C. Martin. Let me explain with simple examples. Single-responsiblity principle Open-closed principle Liskov substitution principle Interface segregation principle Dependency Inversion Principle</summary></entry><entry><title type="html">A little experiment to know performance among sorting versus set construction</title><link href="https://notesbyair.github.io//blog/2018-12-12-List-sorting-time-vs-set-construction-time/" rel="alternate" type="text/html" title="A little experiment to know performance among sorting versus set construction" /><published>2018-12-12T00:00:00-06:00</published><updated>2018-12-12T00:00:00-06:00</updated><id>https://notesbyair.github.io//blog/List-sorting-time-vs-set-construction-time</id><content type="html" xml:base="https://notesbyair.github.io//blog/2018-12-12-List-sorting-time-vs-set-construction-time/">&lt;p&gt;In below experiment I used two code blocks in python to test, one is &lt;code class=&quot;highlighter-rouge&quot;&gt;list.sort()&lt;/code&gt; and &lt;code class=&quot;highlighter-rouge&quot;&gt;set(list)&lt;/code&gt;. Below code is capturing all the time it took using python &lt;code class=&quot;highlighter-rouge&quot;&gt;time&lt;/code&gt; library. Finally, I have plotted some graphs to write final notes about this experiment.&lt;/p&gt;
 
 &lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;time&lt;/span&gt;
 &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;random&lt;/span&gt;
@@ -101,7 +462,7 @@
   &lt;li&gt;This experiment tested in python, but it most likely it will be true for any other languages.&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;Let me know, what do you think by commenting on the post.&lt;/p&gt;</content><author><name>Ajay Ramesh</name><email>ajaycs14@gmail.com</email></author><summary type="html">In below experiment I used two code blocks in python to test, one is list.sort() and set(list). Below code is capturing all the time it took using python time library. Finally, I have plotted some graphs to write final notes about this experiment.</summary></entry><entry><title type="html">Vertico</title><link href="https://notesbyair.github.io//blog/2018-07-08-Vertico/" rel="alternate" type="text/html" title="Vertico" /><published>2018-07-08T00:00:00-04:00</published><updated>2018-07-08T00:00:00-04:00</updated><id>https://notesbyair.github.io//blog/Vertico</id><content type="html" xml:base="https://notesbyair.github.io//blog/2018-07-08-Vertico/">&lt;p&gt;In Volunteer Computing (VC), Volunteers donate their idle computers to many scientific projects like
+&lt;p&gt;Let me know, what do you think by commenting on the post.&lt;/p&gt;</content><author><name>Ajay Ramesh</name><email>ajaycs14@gmail.com</email></author><summary type="html">In below experiment I used two code blocks in python to test, one is list.sort() and set(list). Below code is capturing all the time it took using python time library. Finally, I have plotted some graphs to write final notes about this experiment.</summary></entry><entry><title type="html">Vertico</title><link href="https://notesbyair.github.io//blog/2018-07-08-Vertico/" rel="alternate" type="text/html" title="Vertico" /><published>2018-07-08T00:00:00-05:00</published><updated>2018-07-08T00:00:00-05:00</updated><id>https://notesbyair.github.io//blog/Vertico</id><content type="html" xml:base="https://notesbyair.github.io//blog/2018-07-08-Vertico/">&lt;p&gt;In Volunteer Computing (VC), Volunteers donate their idle computers to many scientific projects like
 &lt;a href=&quot;https://foldingathome.org/&quot;&gt;Folding@home&lt;/a&gt; for understanding protein folding and how it relates to disease. VC applies to the particular set of problems.&lt;/p&gt;
 
 &lt;p&gt;Typically VC projects work by breaking the problems into chunks called work units, which are sent to computers around
@@ -116,7 +477,7 @@ possible solution design is our goal.&lt;/p&gt;
 
 &lt;p&gt;It is like a win-win situation for volunteers and organization.
 So we introduce &lt;strong&gt;VERTICO&lt;/strong&gt;, stands for Volunteer Computing Research Cloud Framework. &lt;a href=&quot;https://github.com/iitc/iitc.github.io/blob/master/vertico-tech-report.pdf&quot;&gt;In this paper, we are giving
-possible solution design for VERTICO and its evaluations&lt;/a&gt;.&lt;/p&gt;</content><author><name>Ajay Ramesh</name><email>ajaycs14@gmail.com</email></author><summary type="html">In Volunteer Computing (VC), Volunteers donate their idle computers to many scientific projects like Folding@home for understanding protein folding and how it relates to disease. VC applies to the particular set of problems.</summary></entry><entry><title type="html">Skype-Study</title><link href="https://notesbyair.github.io//blog/2017-05-05-Skype-Study/" rel="alternate" type="text/html" title="Skype-Study" /><published>2017-05-05T00:00:00-04:00</published><updated>2017-05-05T00:00:00-04:00</updated><id>https://notesbyair.github.io//blog/Skype-Study</id><content type="html" xml:base="https://notesbyair.github.io//blog/2017-05-05-Skype-Study/">&lt;p&gt;&lt;a href=&quot;https://www.skype.com/en/&quot;&gt;Skype&lt;/a&gt; is Similar to Yahoo Chat, Google Chat, and IM chat, etc., but I was wondering why Skype performance is better than compared to other. How really it works? Skype protocol is not open-source, but many tried to reverse engineer. I read some well-cited papers on Skype Architecture, here is a simple version of How your favorite Skype works?&lt;/p&gt;
+possible solution design for VERTICO and its evaluations&lt;/a&gt;.&lt;/p&gt;</content><author><name>Ajay Ramesh</name><email>ajaycs14@gmail.com</email></author><summary type="html">In Volunteer Computing (VC), Volunteers donate their idle computers to many scientific projects like Folding@home for understanding protein folding and how it relates to disease. VC applies to the particular set of problems.</summary></entry><entry><title type="html">Skype-Study</title><link href="https://notesbyair.github.io//blog/2017-05-05-Skype-Study/" rel="alternate" type="text/html" title="Skype-Study" /><published>2017-05-05T00:00:00-05:00</published><updated>2017-05-05T00:00:00-05:00</updated><id>https://notesbyair.github.io//blog/Skype-Study</id><content type="html" xml:base="https://notesbyair.github.io//blog/2017-05-05-Skype-Study/">&lt;p&gt;&lt;a href=&quot;https://www.skype.com/en/&quot;&gt;Skype&lt;/a&gt; is Similar to Yahoo Chat, Google Chat, and IM chat, etc., but I was wondering why Skype performance is better than compared to other. How really it works? Skype protocol is not open-source, but many tried to reverse engineer. I read some well-cited papers on Skype Architecture, here is a simple version of How your favorite Skype works?&lt;/p&gt;
 
 &lt;p&gt;Skype can be seen as a peer-peer distributed network, means it is something similar to Torrent application, where the peer-peer network is used to download movies, music, files etc.&lt;/p&gt;
 

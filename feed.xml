@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="3.8.3">Jekyll</generator><link href="https://notesbyair.github.io//feed.xml" rel="self" type="application/atom+xml" /><link href="https://notesbyair.github.io//" rel="alternate" type="text/html" hreflang="en" /><updated>2019-01-21T22:36:29-06:00</updated><id>https://notesbyair.github.io//</id><title type="html">Notes by Air</title><subtitle>My notes on CS, Travel and Projects
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="3.8.3">Jekyll</generator><link href="https://notesbyair.github.io//feed.xml" rel="self" type="application/atom+xml" /><link href="https://notesbyair.github.io//" rel="alternate" type="text/html" hreflang="en" /><updated>2019-01-21T22:49:13-06:00</updated><id>https://notesbyair.github.io//</id><title type="html">Notes by Air</title><subtitle>My notes on CS, Travel and Projects
 </subtitle><author><name>Ajay Ramesh</name><email>ajaycs14@gmail.com</email></author><entry><title type="html">Quick walk-through on S.O.L.I.D design principle</title><link href="https://notesbyair.github.io//blog/2019-01-07-SOLID/" rel="alternate" type="text/html" title="Quick walk-through on S.O.L.I.D design principle" /><published>2019-01-07T00:00:00-06:00</published><updated>2019-01-07T00:00:00-06:00</updated><id>https://notesbyair.github.io//blog/SOLID</id><content type="html" xml:base="https://notesbyair.github.io//blog/2019-01-07-SOLID/">&lt;p&gt;Five principles of SOLID are below,  most of them are promoted by &lt;a href=&quot;https://en.wikipedia.org/wiki/SOLID&quot;&gt;Rober C. Martin&lt;/a&gt;. Let me explain with simple examples.&lt;/p&gt;
 &lt;ul&gt;
   &lt;li&gt;Single-responsiblity principle&lt;/li&gt;
@@ -82,16 +82,16 @@
 
 &lt;h4 id=&quot;notes&quot;&gt;Notes&lt;/h4&gt;
 &lt;ul&gt;
-  &lt;li&gt;There is nothing wrong fundamentally in above code, but if you follow you SOLID design then it will be more maintainable and less buggy.&lt;/li&gt;
+  &lt;li&gt;There is nothing wrong fundamentally in above code, but if you follow the SOLID design then it will be more maintainable and less buggy.&lt;/li&gt;
   &lt;li&gt;Keep classes to have Single responsiblity.&lt;/li&gt;
-  &lt;li&gt;&lt;span style=&quot;color:red&quot;&gt; Caution: &lt;/span&gt; The above example is just to illustrate the Principle of Single Responsibility.&lt;/li&gt;
+  &lt;li&gt;&lt;span style=&quot;color:red&quot;&gt; Caution: &lt;/span&gt; The above example is just to illustrate the Principle of Single Responsibility. Not to show how to design actual notepad.&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;h2 id=&quot;2-open-closed-principle&quot;&gt;2. Open-closed Principle&lt;/h2&gt;
 
 &lt;p&gt;“Software entities (classes, modules, functions, etc.) should be open for extension, but closed for modification.”&lt;/p&gt;
 
-&lt;p&gt;&lt;b&gt;Scenario:&lt;/b&gt; Imagine you are building a MS Office word 2020, call it as &lt;strong&gt;MSWord2020&lt;/strong&gt;. The above code is very old version has just two types of export options(pdf, json), but new MSWord2020 has some new features:
+&lt;p&gt;&lt;b&gt;Scenario:&lt;/b&gt; Imagine you are building a MS Office word 2020, call it as &lt;strong&gt;MSWord2020&lt;/strong&gt;. The above code is very old version, has just two types of export options(pdf, json), but new MSWord2020 has some new features:
     - such as text to speech. 
     - etc.
 Also keep in mind, to add one more feature in MSWord2030 version. How will do you design you Objects ?&lt;/p&gt;
@@ -157,11 +157,11 @@ Also keep in mind, to add one more feature in MSWord2030 version. How will do yo
 
 &lt;h2 id=&quot;3-liskov-substitution-principle&quot;&gt;3. Liskov substitution principle&lt;/h2&gt;
 
-&lt;p&gt;This is most import and tricky rule to understand, I read several blogs and guides(menioned those links above). Its quite difficult for me to explain in detail but let me try in short.&lt;/p&gt;
+&lt;p&gt;This is most import and tricky rule to understand, I read several blogs and guides. Try to read this one atleast twice.&lt;/p&gt;
 
 &lt;h4 id=&quot;pre-requirement-for-this-rule&quot;&gt;Pre-requirement for this rule&lt;/h4&gt;
 &lt;ul&gt;
-  &lt;li&gt;Are you implementing an interface ? If Yes, you must test this rule throughly&lt;/li&gt;
+  &lt;li&gt;Are you implementing an interface ? If Yes, you must test this rule throughly.&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;p&gt;&lt;strong&gt;Rule:&lt;/strong&gt;
@@ -170,7 +170,7 @@ Any class, S, can be used to replace a class, B, if and only if, S is a subtype 
 &lt;div class=&quot;language-java highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;interface&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Human&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
     &lt;span class=&quot;n&quot;&gt;publi&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;eat&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;();&lt;/span&gt;
 &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
-&lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Robot&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;extends&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Human&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+&lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;HumanoidRobot&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;extends&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Human&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
      &lt;span class=&quot;c1&quot;&gt;// can robot eat ? &lt;/span&gt;
 &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
     
@@ -178,7 +178,7 @@ Any class, S, can be used to replace a class, B, if and only if, S is a subtype 
 &lt;span class=&quot;n&quot;&gt;Human&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;obj2&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Robot&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;()&lt;/span&gt; 
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;p&gt;If you apply the rule S is Human and B is Robot, suppose if you replace B with S(meaning, robot with human) then it does not make sense to many operations, such as eating method of human. So one way to avoid is to like below..&lt;/p&gt;
+&lt;p&gt;If you apply the rule S is Human and B is Robot, suppose if you replace B with S(meaning, HumanoidRobot with Human) then it does not make sense to many operations, such as eating method of human. So one way to avoid is to like below..&lt;/p&gt;
 
 &lt;p&gt;&lt;strong&gt;Don’t&lt;/strong&gt;&lt;/p&gt;
 
@@ -217,7 +217,7 @@ without changing the behaviors of a program. The logic behind this is straightfo
 &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
 
 &lt;span class=&quot;c1&quot;&gt;// Example:&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;Everything&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;ev&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Robot&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;()&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;Everything&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;ev&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;HumanoidRobot&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;()&lt;/span&gt;
     &lt;span class=&quot;n&quot;&gt;Everything&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;ev&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Human&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;()&lt;/span&gt;
 &lt;span class=&quot;c1&quot;&gt;// if you apply the substition rule it satisfies, since both does the run operation but differently. &lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
@@ -360,7 +360,9 @@ without changing the behaviors of a program. The logic behind this is straightfo
   &lt;li&gt;http://web.archive.org/web/20151128004108/http://www.objectmentor.com/resources/articles/lsp.pdf&lt;/li&gt;
   &lt;li&gt;https://stackoverflow.com/questions/56860/what-is-an-example-of-the-liskov-substitution-principle&lt;/li&gt;
   &lt;li&gt;https://www.coursera.org/learn/design-patterns&lt;/li&gt;
-&lt;/ul&gt;</content><author><name>Ajay Ramesh</name><email>ajaycs14@gmail.com</email></author><summary type="html">Five principles of SOLID are below, most of them are promoted by Rober C. Martin. Let me explain with simple examples. Single-responsiblity principle Open-closed principle Liskov substitution principle Interface segregation principle Dependency Inversion Principle</summary></entry><entry><title type="html">A little experiment to know performance among sorting versus set construction</title><link href="https://notesbyair.github.io//blog/2018-12-12-List-sorting-time-vs-set-construction-time/" rel="alternate" type="text/html" title="A little experiment to know performance among sorting versus set construction" /><published>2018-12-12T00:00:00-06:00</published><updated>2018-12-12T00:00:00-06:00</updated><id>https://notesbyair.github.io//blog/List-sorting-time-vs-set-construction-time</id><content type="html" xml:base="https://notesbyair.github.io//blog/2018-12-12-List-sorting-time-vs-set-construction-time/">&lt;p&gt;In below experiment I used two code blocks in python to test, one is &lt;code class=&quot;highlighter-rouge&quot;&gt;list.sort()&lt;/code&gt; and &lt;code class=&quot;highlighter-rouge&quot;&gt;set(list)&lt;/code&gt;. Below code is capturing all the time it took using python &lt;code class=&quot;highlighter-rouge&quot;&gt;time&lt;/code&gt; library. Finally, I have plotted some graphs to write final notes about this experiment.&lt;/p&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Thank you, let me know for your comments.&lt;/p&gt;</content><author><name>Ajay Ramesh</name><email>ajaycs14@gmail.com</email></author><summary type="html">Five principles of SOLID are below, most of them are promoted by Rober C. Martin. Let me explain with simple examples. Single-responsiblity principle Open-closed principle Liskov substitution principle Interface segregation principle Dependency Inversion Principle</summary></entry><entry><title type="html">A little experiment to know performance among sorting versus set construction</title><link href="https://notesbyair.github.io//blog/2018-12-12-List-sorting-time-vs-set-construction-time/" rel="alternate" type="text/html" title="A little experiment to know performance among sorting versus set construction" /><published>2018-12-12T00:00:00-06:00</published><updated>2018-12-12T00:00:00-06:00</updated><id>https://notesbyair.github.io//blog/List-sorting-time-vs-set-construction-time</id><content type="html" xml:base="https://notesbyair.github.io//blog/2018-12-12-List-sorting-time-vs-set-construction-time/">&lt;p&gt;In below experiment I used two code blocks in python to test, one is &lt;code class=&quot;highlighter-rouge&quot;&gt;list.sort()&lt;/code&gt; and &lt;code class=&quot;highlighter-rouge&quot;&gt;set(list)&lt;/code&gt;. Below code is capturing all the time it took using python &lt;code class=&quot;highlighter-rouge&quot;&gt;time&lt;/code&gt; library. Finally, I have plotted some graphs to write final notes about this experiment.&lt;/p&gt;
 
 &lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;time&lt;/span&gt;
 &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;random&lt;/span&gt;
