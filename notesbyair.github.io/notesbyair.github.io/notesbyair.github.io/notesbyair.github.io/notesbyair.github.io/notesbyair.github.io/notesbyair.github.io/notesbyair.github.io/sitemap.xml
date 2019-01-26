@@ -2,11 +2,19 @@
 <urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 <url>
 <loc>https://notesbyair.github.io//blog/hyde/</loc>
+<<<<<<< HEAD
 <lastmod>2018-10-21T14:03:44-05:00</lastmod>
 </url>
 <url>
 <loc>https://notesbyair.github.io//blog/hydejack/</loc>
 <lastmod>2018-10-21T14:03:44-05:00</lastmod>
+=======
+<lastmod>2018-10-20T21:47:53-05:00</lastmod>
+</url>
+<url>
+<loc>https://notesbyair.github.io//blog/hydejack/</loc>
+<lastmod>2018-10-20T21:47:53-05:00</lastmod>
+>>>>>>> parent of b3b0538... Post3
 </url>
 <url>
 <loc>https://notesbyair.github.io//blog/2017-05-05-Skype-Study/</loc>
@@ -111,6 +119,7 @@
 <loc>https://notesbyair.github.io//assets/Resume.pdf</loc>
 <lastmod>2018-09-01T12:47:20-05:00</lastmod>
 </url>
+<<<<<<< HEAD
 <url>
 <loc>https://notesbyair.github.io//notesbyair.github.io/CHANGELOG/</loc>
 <lastmod>2018-10-21T00:46:33-05:00</lastmod>
@@ -607,4 +616,6 @@
 <loc>https://notesbyair.github.io//notesbyair.github.io/resume/</loc>
 <lastmod>2018-10-21T00:46:33-05:00</lastmod>
 </url>
+=======
+>>>>>>> parent of b3b0538... Post3
 </urlset>
