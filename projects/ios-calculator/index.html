@@ -1,0 +1,1044 @@
+<!DOCTYPE html>
+<html lang="en"><!--
+ __  __                __                                     __
+/\ \/\ \              /\ \             __                    /\ \
+\ \ \_\ \   __  __    \_\ \      __   /\_\      __       ___ \ \ \/'\
+ \ \  _  \ /\ \/\ \   /'_` \   /'__`\ \/\ \   /'__`\    /'___\\ \ , <
+  \ \ \ \ \\ \ \_\ \ /\ \L\ \ /\  __/  \ \ \ /\ \L\.\_ /\ \__/ \ \ \\`\
+   \ \_\ \_\\/`____ \\ \___,_\\ \____\ _\ \ \\ \__/.\_\\ \____\ \ \_\ \_\
+    \/_/\/_/ `/___/> \\/__,_ / \/____//\ \_\ \\/__/\/_/ \/____/  \/_/\/_/
+                /\___/                \ \____/
+                \/__/                  \/___/
+
+Powered by Hydejack v8.1.1 <https://hydejack.com/>
+-->
+
+
+
+
+
+
+
+
+
+
+
+<head>
+  
+
+
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<meta http-equiv="x-ua-compatible" content="ie=edge">
+
+
+  
+<!-- Begin Jekyll SEO tag v2.5.0 -->
+<title>ios-calculator | Notes by Air</title>
+<meta name="generator" content="Jekyll v3.8.3" />
+<meta property="og:title" content="ios-calculator" />
+<meta name="author" content="Ajay Ramesh" />
+<meta property="og:locale" content="en" />
+<meta name="description" content="A simple iOS app" />
+<meta property="og:description" content="A simple iOS app" />
+<link rel="canonical" href="http://localhost:4001/projects/ios-calculator/" />
+<meta property="og:url" content="http://localhost:4001/projects/ios-calculator/" />
+<meta property="og:site_name" content="Notes by Air" />
+<meta property="og:image" content="http://localhost:4001/assets/projects/calculator.PNG" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2017-06-05T00:00:00-05:00" />
+<script type="application/ld+json">
+{"image":"http://localhost:4001/assets/projects/calculator.PNG","@type":"WebPage","url":"http://localhost:4001/projects/ios-calculator/","headline":"ios-calculator","dateModified":"2017-06-05T00:00:00-05:00","datePublished":"2017-06-05T00:00:00-05:00","author":{"@type":"Person","name":"Ajay Ramesh"},"description":"A simple iOS app","@context":"http://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+
+  
+
+  
+
+
+<meta name="mobile-web-app-capable" content="yes">
+
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="Notes by Air">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+<meta name="application-name" content="Notes by Air">
+<meta name="msapplication-config" content="/assets/ieconfig.xml">
+
+
+<meta name="theme-color" content="rgb(25,55,71)">
+
+
+<meta name="generator" content="Hydejack v8.1.1" />
+
+<link type="application/atom+xml" rel="alternate" href="http://localhost:4001/feed.xml" title="Notes by Air" />
+
+
+
+<link rel="alternate" href="http://localhost:4001/projects/ios-calculator/" hreflang="en">
+
+<link rel="shortcut icon" href="/assets/icons/favicon.ico">
+<link rel="apple-touch-icon" href="/assets/icons/icon.png">
+
+<link rel="manifest" href="/assets/manifest.json">
+
+
+  <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+  <link rel="dns-prefetch" href="https://fonts.gstatic.com">
+
+
+  <link rel="dns-prefetch" href="https://www.google-analytics.com">
+
+
+
+<link rel="dns-prefetch" href="/" id="_baseURL">
+<link rel="dns-prefetch" href="/assets/js/hydejack-8.1.1.js" id="_hrefJS">
+<link rel="dns-prefetch" href="/sw.js" id="_hrefSW">
+<link rel="dns-prefetch" href="/assets/bower_components/fontfaceobserver/fontfaceobserver.standalone.js" id="_hrefFFO">
+<link rel="dns-prefetch" href="/assets/bower_components/katex/dist/katex.min.js" id="_hrefKatexJS">
+<link rel="dns-prefetch" href="/assets/bower_components/katex/dist/katex.min.css" id="_hrefKatexCSS">
+<link rel="dns-prefetch" href="/assets/img/swipe.svg" id="_hrefSwipeSVG">
+
+
+
+<link rel="dns-prefetch" href="https://notesbyair.disqus.com" id="_hrefDisqus">
+
+
+<script>!function(e,t){"use strict";function n(e,t,n,r){e.addEventListener?e.addEventListener(t,n,r):e.attachEvent?e.attachEvent("on"+t,n):e["on"+t]=n}e.loadJS=function(e,r){var o=t.createElement("script");o.src=e,r&&n(o,"load",r,{once:!0});var a=t.scripts[0];return a.parentNode.insertBefore(o,a),o},e._loaded=!1,e.loadJSDeferred=function(r,o){function a(){e._loaded=!0,o&&n(d,"load",o,{once:!0});var r=t.scripts[0];r.parentNode.insertBefore(d,r)}var d=t.createElement("script");return d.src=r,e._loaded?a():n(e,"load",a,{once:!0}),d},e.setRel=e.setRelStylesheet=function(e){function n(){this.rel="stylesheet"}var r=t.getElementById(e);r.addEventListener?r.addEventListener("load",n,{once:!0}):r.onload=n}}(window,document);
+!function(a){"use strict";var b=function(b,c,d){function e(a){return h.body?a():void setTimeout(function(){e(a)})}function f(){i.addEventListener&&i.removeEventListener("load",f),i.media=d||"all"}var g,h=a.document,i=h.createElement("link");if(c)g=c;else{var j=(h.body||h.getElementsByTagName("head")[0]).childNodes;g=j[j.length-1]}var k=h.styleSheets;i.rel="stylesheet",i.href=b,i.media="only x",e(function(){g.parentNode.insertBefore(i,c?g:g.nextSibling)});var l=function(a){for(var b=i.href,c=k.length;c--;)if(k[c].href===b)return a();setTimeout(function(){l(a)})};return i.addEventListener&&i.addEventListener("load",f),i.onloadcssdefined=l,l(f),i};"undefined"!=typeof exports?exports.loadCSS=b:a.loadCSS=b}("undefined"!=typeof global?global:this);
+!function(a){if(a.loadCSS){var b=loadCSS.relpreload={};if(b.support=function(){try{return a.document.createElement("link").relList.supports("preload")}catch(b){return!1}},b.poly=function(){for(var b=a.document.getElementsByTagName("link"),c=0;c<b.length;c++){var d=b[c];"preload"===d.rel&&"style"===d.getAttribute("as")&&(a.loadCSS(d.href,d,d.getAttribute("media")),d.rel=null)}},!b.support()){b.poly();var c=a.setInterval(b.poly,300);a.addEventListener&&a.addEventListener("load",function(){b.poly(),a.clearInterval(c)}),a.attachEvent&&a.attachEvent("onload",function(){a.clearInterval(c)})}}}(this);
+</script>
+
+<script>!function(w, d) {
+    w._noPushState = false;
+    w._noDrawer = false;
+
+    /**/
+    loadJS(d.getElementById('_hrefFFO').href, function() {
+      if ('Promise' in w) Promise.all([
+        new FontFaceObserver('Noto Sans').load(),
+        new FontFaceObserver('Roboto Slab').load(),
+      ]).then(function f() { d.body.classList.add('font-active'); }, function() {});
+    });
+    /**/
+}(window, document);</script>
+
+<!--[if gt IE 8]><!---->
+
+
+
+
+
+
+
+
+  <link rel="stylesheet" href="/assets/css/hydejack-8.1.1.css">
+  <link rel="stylesheet" href="/assets/icomoon/style.css">
+  
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto+Slab:400|Noto+Sans:400,400i,700,700i">
+    <noscript>
+      <style>
+        html { font-family: Noto Sans, Helvetica, Arial, sans-serif!important; }
+        h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6, .heading { font-family: Roboto Slab, Helvetica, Arial, sans-serif!important; }
+      </style>
+    </noscript>
+  
+
+
+<style id="_pageStyle">
+.content a:not(.btn){color:#4fb1ba;border-color:rgba(79,177,186,0.2)}.content a:not(.btn):hover{border-color:#4fb1ba}:focus{outline-color:#4fb1ba !important}.btn-primary{color:#fff;background-color:#4fb1ba;border-color:#4fb1ba}.btn-primary:focus,.btn-primary.focus,.form-control:focus,.form-control.focus{box-shadow:0 0 0 3px rgba(79,177,186,0.5)}.btn-primary:hover,.btn-primary.hover{color:#fff;background-color:#409ba3;border-color:#409ba3}.btn-primary:disabled,.btn-primary.disabled{color:#fff;background-color:#4fb1ba;border-color:#4fb1ba}.btn-primary:active,.btn-primary.active{color:#fff;background-color:#409ba3;border-color:#409ba3}body.dark-mode{--body-bg: #2d3539;--border-color: #384248}::selection{color:#fff;background:#4fb1ba}::-moz-selection{color:#fff;background:#4fb1ba}
+
+</style>
+
+<!--<![endif]-->
+
+
+
+
+</head>
+
+<body class="no-color-transition">
+  <div id="_navbar" class="navbar fixed-top">
+  <div class="content">
+    <div class="nav-btn-bar">
+      <span class="sr-only">Jump to:</span>
+      <a id="_menu" class="nav-btn no-hover fl" href="#_navigation">
+        <span class="sr-only">Navigation</span>
+        <span class="icon-menu"></span>
+      </a>
+    </div>
+  </div>
+</div>
+<hr class="sr-only" hidden />
+
+
+<hy-push-state
+  replace-ids="_main"
+  link-selector="a[href]:not([href*='/assets/']):not(.external):not(.no-push-state)"
+  duration="250"
+  script-selector="script:not([type^='math/tex'])"
+  prefetch
+>
+  
+    <main
+  id="_main"
+  class="content fade-in layout-project"
+  role="main"
+  data-color="rgb(79,177,186)"
+  data-theme-color="rgb(25,55,71)"
+  
+    data-image="/assets/img/pacific.jpg"
+    data-overlay
+  
+  >
+  
+
+
+
+
+
+<article
+  id="project"
+  class="page"
+  role="article"
+  vocab="http://schema.org/" typeof="CreativeWork" resource="#project"
+  >
+  <header>
+    <h1 class="page-title" property="name">ios-calculator</h1>
+
+    <p class="post-date heading">
+      
+      
+        <a href="/projects/" class="flip-title" property="genre">Projects</a>
+        |
+      
+
+
+      <time datetime="2017-06-05T00:00:00-05:00">2017</time>
+      
+
+      <span class="fr">
+        <span class="sr-only">| Links:</span>
+        
+      </span>
+    </p>
+
+    
+    <div class="img lead sixteen-nine">
+      
+        
+
+
+  
+  <hy-img root-margin="512px" 
+    
+    src="/assets/projects/calculator.PNG"
+    
+    alt="ios-calculator"
+  
+    property="image"
+  >
+    <noscript><img data-ignore 
+    
+    src="/assets/projects/calculator.PNG"
+    
+    alt="ios-calculator"
+  
+    property="image"
+  /></noscript>
+    <span class="loading" slot="loading" hidden>
+      <span class="icon-cog"></span>
+    </span>
+  </hy-img>
+
+
+      
+    </div>
+
+    
+
+
+
+  
+    <p class="message" property="description">
+      A simple iOS app
+
+    </p>
+  
+
+
+    <meta property="disambiguatingDescription" content="Swift 3 calculator App"/>
+  </header>
+
+  <p>
+  <hy-img root-margin="512px"  src="/assets/projects/ios-gif.gif" alt="ios calculator app" title="ios calculator app" >
+    <noscript><img data-ignore  src="/assets/projects/ios-gif.gif" alt="ios calculator app" title="ios calculator app" /></noscript>
+    <span class="loading" slot="loading" hidden>
+      <span class="icon-cog"></span>
+    </span>
+  </hy-img></p>
+
+<div class="language-swift highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">//</span>
+<span class="c1">//  CalculatorBrain.swift</span>
+<span class="c1">//  Calculator</span>
+<span class="c1">//</span>
+<span class="c1">//  Created by Ajay Ramesh on 5/21/17.</span>
+<span class="c1">//  Copyright © 2017 Ajay Ramesh. All rights reserved.</span>
+<span class="c1">//</span>
+
+<span class="kd">import</span> <span class="kt">Foundation</span>
+
+<span class="kd">func</span> <span class="nf">test</span><span class="p">(</span><span class="nv">t</span><span class="p">:</span><span class="kt">Double</span><span class="p">)</span> <span class="o">-&gt;</span><span class="kt">Void</span><span class="p">{</span>
+    <span class="nf">print</span><span class="p">(</span><span class="s">"</span><span class="se">\(</span><span class="n">t</span><span class="se">)</span><span class="s">"</span><span class="p">);</span>
+<span class="p">}</span>
+<span class="kd">struct</span> <span class="kt">CalculatorBrain</span> <span class="p">{</span>
+    <span class="kd">private</span> <span class="k">var</span> <span class="nv">accumalator</span> <span class="p">:</span> <span class="kt">Double</span><span class="p">?</span>
+    
+    <span class="kd">private</span> <span class="kd">enum</span> <span class="kt">Operation</span> <span class="p">{</span>
+        <span class="k">case</span> <span class="nf">constant</span><span class="p">(</span><span class="kt">Double</span><span class="p">)</span>
+        <span class="k">case</span> <span class="nf">unaryOperation</span><span class="p">((</span><span class="kt">Double</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Double</span><span class="p">)</span>
+        <span class="k">case</span> <span class="nf">binaryOperation</span><span class="p">((</span><span class="kt">Double</span><span class="p">,</span> <span class="kt">Double</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Double</span><span class="p">)</span>
+        <span class="k">case</span> <span class="n">equals</span>
+        <span class="k">case</span> <span class="nf">dotTODO</span><span class="p">((</span><span class="kt">Double</span><span class="p">)</span><span class="o">-&gt;</span><span class="kt">Void</span><span class="p">)</span>
+    <span class="p">}</span>
+    
+    <span class="kd">private</span> <span class="k">var</span> <span class="nv">operations</span><span class="p">:</span> <span class="kt">Dictionary</span><span class="o">&lt;</span><span class="kt">String</span><span class="p">,</span> <span class="kt">Operation</span><span class="o">&gt;</span> <span class="o">=</span> <span class="p">[</span>
+        <span class="s">"π"</span> <span class="p">:</span> <span class="kt">Operation</span><span class="o">.</span><span class="nf">constant</span><span class="p">(</span><span class="kt">Double</span><span class="o">.</span><span class="n">pi</span><span class="p">),</span>
+        <span class="s">"e"</span> <span class="p">:</span> <span class="kt">Operation</span><span class="o">.</span><span class="nf">constant</span><span class="p">(</span><span class="kt">M_E</span><span class="p">),</span>
+        <span class="s">"√"</span> <span class="p">:</span> <span class="kt">Operation</span><span class="o">.</span><span class="nf">unaryOperation</span><span class="p">(</span><span class="n">sqrt</span><span class="p">),</span>
+        <span class="s">"cos"</span> <span class="p">:</span> <span class="kt">Operation</span><span class="o">.</span><span class="nf">unaryOperation</span><span class="p">(</span><span class="n">cos</span><span class="p">),</span>
+        <span class="s">"±"</span> <span class="p">:</span> <span class="kt">Operation</span><span class="o">.</span><span class="nf">unaryOperation</span><span class="p">({</span><span class="o">-</span><span class="nv">$0</span><span class="p">}),</span>
+        <span class="s">"×"</span> <span class="p">:</span> <span class="kt">Operation</span><span class="o">.</span><span class="nf">binaryOperation</span><span class="p">({</span> <span class="nv">$0</span> <span class="o">*</span> <span class="nv">$1</span><span class="p">}</span> <span class="p">),</span>
+        <span class="s">"÷"</span> <span class="p">:</span> <span class="kt">Operation</span><span class="o">.</span><span class="nf">binaryOperation</span><span class="p">({</span> <span class="nv">$0</span> <span class="o">/</span> <span class="nv">$1</span><span class="p">}),</span>
+        <span class="s">"+"</span> <span class="p">:</span> <span class="kt">Operation</span><span class="o">.</span><span class="nf">binaryOperation</span><span class="p">({</span> <span class="nv">$0</span> <span class="o">+</span> <span class="nv">$1</span><span class="p">}</span> <span class="p">),</span>
+        <span class="s">"－"</span> <span class="p">:</span> <span class="kt">Operation</span><span class="o">.</span><span class="nf">binaryOperation</span><span class="p">({</span> <span class="nv">$0</span> <span class="o">-</span> <span class="nv">$1</span><span class="p">}),</span>
+        <span class="s">"="</span> <span class="p">:</span> <span class="kt">Operation</span><span class="o">.</span><span class="n">equals</span><span class="p">,</span>
+        <span class="s">"."</span> <span class="p">:</span> <span class="kt">Operation</span><span class="o">.</span><span class="nf">dotTODO</span><span class="p">(</span><span class="n">test</span><span class="p">)</span>
+    <span class="p">]</span>
+    
+    
+    <span class="k">mutating</span> <span class="kd">func</span> <span class="nf">performOperation</span><span class="p">(</span><span class="n">_</span> <span class="nv">symbol</span><span class="p">:</span> <span class="kt">String</span> <span class="p">)</span>  <span class="p">{</span>
+        <span class="k">if</span> <span class="k">let</span> <span class="nv">operation</span> <span class="o">=</span> <span class="n">operations</span><span class="p">[</span><span class="n">symbol</span><span class="p">]</span> <span class="p">{</span>
+            <span class="k">switch</span> <span class="n">operation</span> <span class="p">{</span>
+            <span class="k">case</span> <span class="o">.</span><span class="nf">constant</span><span class="p">(</span><span class="k">let</span> <span class="nv">value</span><span class="p">):</span>
+                <span class="n">accumalator</span> <span class="o">=</span> <span class="n">value</span>
+            <span class="k">case</span> <span class="o">.</span><span class="nf">unaryOperation</span><span class="p">(</span><span class="k">let</span> <span class="nv">function</span><span class="p">):</span>
+                <span class="k">if</span> <span class="n">accumalator</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
+                    <span class="n">accumalator</span> <span class="o">=</span> <span class="nf">function</span><span class="p">(</span><span class="n">accumalator</span><span class="o">!</span><span class="p">)</span>
+                <span class="p">}</span>
+            <span class="k">case</span> <span class="o">.</span><span class="nf">binaryOperation</span><span class="p">(</span><span class="k">let</span> <span class="nv">function</span><span class="p">):</span>
+                <span class="k">if</span> <span class="n">accumalator</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
+                    <span class="n">pendingBinaryOperation</span> <span class="o">=</span> <span class="kt">PendingBinaryOperation</span><span class="p">(</span><span class="nv">function</span><span class="p">:</span> <span class="n">function</span><span class="p">,</span> <span class="nv">firstOperand</span><span class="p">:</span> <span class="n">accumalator</span><span class="o">!</span><span class="p">)</span>
+                    <span class="n">accumalator</span> <span class="o">=</span> <span class="kc">nil</span>
+                <span class="p">}</span>
+            <span class="k">case</span> <span class="o">.</span><span class="nv">equals</span><span class="p">:</span>
+                <span class="nf">performPendingBinaryOperation</span><span class="p">()</span>
+            
+            <span class="k">case</span> <span class="o">.</span><span class="nf">dotTODO</span><span class="p">(</span><span class="k">let</span> <span class="nv">function</span><span class="p">):</span>
+                <span class="k">if</span><span class="p">(</span><span class="n">accumalator</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">){</span>
+                    <span class="nf">function</span><span class="p">(</span><span class="n">accumalator</span><span class="o">!</span><span class="p">)</span>
+                <span class="p">}</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+    
+    <span class="k">mutating</span> <span class="kd">private</span> <span class="kd">func</span> <span class="nf">performPendingBinaryOperation</span><span class="p">(){</span>
+        <span class="k">if</span> <span class="n">pendingBinaryOperation</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="o">&amp;&amp;</span> <span class="n">accumalator</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
+            <span class="n">accumalator</span> <span class="o">=</span> <span class="n">pendingBinaryOperation</span><span class="o">!.</span><span class="nf">perform</span><span class="p">(</span><span class="nv">with</span><span class="p">:</span> <span class="n">accumalator</span><span class="o">!</span><span class="p">)</span>
+            <span class="n">pendingBinaryOperation</span> <span class="o">=</span> <span class="kc">nil</span>
+        <span class="p">}</span>
+        
+    <span class="p">}</span>
+    
+    <span class="kd">private</span> <span class="k">var</span> <span class="nv">pendingBinaryOperation</span><span class="p">:</span> <span class="kt">PendingBinaryOperation</span><span class="p">?</span>
+    
+    <span class="kd">private</span> <span class="kd">struct</span> <span class="kt">PendingBinaryOperation</span> <span class="p">{</span>
+        <span class="k">let</span> <span class="nv">function</span><span class="p">:</span> <span class="p">(</span><span class="kt">Double</span><span class="p">,</span> <span class="kt">Double</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Double</span>
+        <span class="k">let</span> <span class="nv">firstOperand</span><span class="p">:</span> <span class="kt">Double</span>
+        
+        <span class="kd">func</span> <span class="nf">perform</span><span class="p">(</span><span class="n">with</span> <span class="nv">secondOperand</span><span class="p">:</span><span class="kt">Double</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Double</span> <span class="p">{</span>
+            <span class="k">return</span> <span class="nf">function</span><span class="p">(</span><span class="n">firstOperand</span><span class="p">,</span> <span class="n">secondOperand</span><span class="p">)</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+    
+    <span class="k">mutating</span> <span class="kd">func</span> <span class="nf">setOperand</span><span class="p">(</span><span class="n">_</span> <span class="nv">operand</span><span class="p">:</span> <span class="kt">Double</span><span class="p">)</span>  <span class="p">{</span>
+        <span class="n">accumalator</span> <span class="o">=</span> <span class="n">operand</span>
+    <span class="p">}</span>
+    
+    <span class="k">var</span> <span class="nv">result</span><span class="p">:</span> <span class="kt">Double</span><span class="p">?</span> <span class="p">{</span>
+        <span class="k">get</span> <span class="p">{</span>
+            <span class="k">return</span> <span class="n">accumalator</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+<blockquote>
+  <p>Main Controller source code</p>
+</blockquote>
+
+<div class="language-swift highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">//</span>
+<span class="c1">//  ViewController.swift</span>
+<span class="c1">//  Calculator</span>
+<span class="c1">//</span>
+<span class="c1">//  Created by Ajay Ramesh on 4/4/17.</span>
+<span class="c1">//  Copyright © 2017 Ajay Ramesh. All rights reserved.</span>
+<span class="c1">//</span>
+<span class="kd">import</span> <span class="kt">UIKit</span>
+
+<span class="kd">class</span> <span class="kt">ViewController</span><span class="p">:</span> <span class="kt">UIViewController</span> <span class="p">{</span>
+    
+    <span class="kd">@IBOutlet</span> <span class="k">weak</span> <span class="k">var</span> <span class="nv">display</span><span class="p">:</span> <span class="kt">UILabel</span><span class="o">!</span>
+    
+    <span class="k">var</span> <span class="nv">userIsInMiddleOfTyping</span> <span class="o">=</span> <span class="kc">false</span>
+    
+    <span class="kd">@IBAction</span> <span class="kd">func</span> <span class="nf">touchDigit</span><span class="p">(</span><span class="n">_</span> <span class="nv">sender</span><span class="p">:</span> <span class="kt">UIButton</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">let</span> <span class="nv">digit</span> <span class="o">=</span> <span class="n">sender</span><span class="o">.</span><span class="n">currentTitle</span><span class="o">!</span>
+        <span class="k">if</span> <span class="n">userIsInMiddleOfTyping</span><span class="p">{</span>
+            <span class="k">let</span> <span class="nv">textCurrentlyInDisplay</span> <span class="o">=</span> <span class="n">display</span><span class="o">!.</span><span class="n">text</span><span class="o">!</span>
+            <span class="n">display</span><span class="o">.</span><span class="n">text</span> <span class="o">=</span> <span class="n">textCurrentlyInDisplay</span> <span class="o">+</span> <span class="n">digit</span>
+        <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+            <span class="n">display</span><span class="o">.</span><span class="n">text</span><span class="o">!</span> <span class="o">=</span> <span class="n">digit</span>
+            <span class="n">userIsInMiddleOfTyping</span> <span class="o">=</span> <span class="kc">true</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+    
+    <span class="k">var</span> <span class="nv">displayValue</span> <span class="p">:</span> <span class="kt">Double</span><span class="p">{</span>
+        <span class="k">get</span><span class="p">{</span>
+            <span class="k">return</span> <span class="kt">Double</span><span class="p">(</span><span class="n">display</span><span class="o">.</span><span class="n">text</span><span class="o">!</span><span class="p">)</span><span class="o">!</span>
+        <span class="p">}</span>
+        <span class="k">set</span> <span class="p">{</span>
+            <span class="n">display</span><span class="o">.</span><span class="n">text</span> <span class="o">=</span> <span class="kt">String</span><span class="p">(</span><span class="n">newValue</span><span class="p">)</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+    
+    <span class="kd">private</span> <span class="k">var</span> <span class="nv">brain</span> <span class="o">=</span> <span class="kt">CalculatorBrain</span><span class="p">()</span>
+    
+    <span class="kd">@IBAction</span> <span class="kd">func</span> <span class="nf">performOperation</span><span class="p">(</span><span class="n">_</span> <span class="nv">sender</span><span class="p">:</span> <span class="kt">UIButton</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">if</span><span class="p">(</span><span class="n">userIsInMiddleOfTyping</span><span class="p">){</span>
+            <span class="n">brain</span><span class="o">.</span><span class="nf">setOperand</span><span class="p">(</span><span class="n">displayValue</span><span class="p">)</span>
+            <span class="n">userIsInMiddleOfTyping</span> <span class="o">=</span> <span class="kc">false</span>
+        <span class="p">}</span>
+        
+        <span class="k">if</span> <span class="k">let</span> <span class="nv">mathematicalSymbol</span> <span class="o">=</span> <span class="n">sender</span><span class="o">.</span><span class="n">currentTitle</span> <span class="p">{</span>
+            <span class="n">brain</span><span class="o">.</span><span class="nf">performOperation</span><span class="p">(</span><span class="n">mathematicalSymbol</span><span class="p">)</span>
+        <span class="p">}</span>
+        <span class="k">if</span> <span class="k">let</span> <span class="nv">result</span> <span class="o">=</span> <span class="n">brain</span><span class="o">.</span><span class="n">result</span> <span class="p">{</span>
+            <span class="n">displayValue</span> <span class="o">=</span> <span class="n">result</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+    
+<span class="p">}</span>
+</code></pre></div></div>
+
+</article>
+
+<hr class="dingbat related" />
+
+
+
+
+  
+     
+
+
+  <aside class="about related mt4 mb4" role="complementary">
+    
+    
+
+<div class="author mt4">
+  
+
+  
+
+  
+  
+  <h2  class="page-title hr">
+    About
+  </h2>
+
+  <p>Hi, I am Ajay, a Software Engineer with 4+ years of experience in building 
+distributed systems in Cloud and applying Machine learning Models.</p>
+
+<p><a href="/">for more please check here</a></p>
+
+
+  <div class="sidebar-social">
+    <span class="sr-only">Social:</span>
+<ul>
+  
+    
+      
+
+
+
+  
+
+  
+  
+  
+  
+
+  
+
+  
+
+  <li>
+    <a href="https://github.com/ajayramezh" title="GitHub" class="no-mark-external">
+      <span class="icon-github"></span>
+      <span class="sr-only">GitHub</span>
+    </a>
+  </li>
+
+
+    
+      
+
+
+
+  
+
+  
+  
+  
+  
+
+  
+
+  
+
+  <li>
+    <a href="https://facebook.com/ajayramezh" title="Facebook" class="no-mark-external">
+      <span class="icon-facebook"></span>
+      <span class="sr-only">Facebook</span>
+    </a>
+  </li>
+
+
+    
+      
+
+
+
+  
+
+  
+  
+  
+  
+
+  
+
+  
+
+  <li>
+    <a href="http://stackoverflow.com/users/2094670/ajayramesh" title="Stack Overflow" class="no-mark-external">
+      <span class="icon-stackoverflow"></span>
+      <span class="sr-only">Stack Overflow</span>
+    </a>
+  </li>
+
+
+    
+      
+
+
+
+  
+
+  
+  
+  
+  
+
+  
+
+  
+
+  <li>
+    <a href="https://www.linkedin.com/in/ajay-ramesh" title="LinkedIn" class="no-mark-external">
+      <span class="icon-linkedin2"></span>
+      <span class="sr-only">LinkedIn</span>
+    </a>
+  </li>
+
+
+    
+  
+</ul>
+
+  </div>
+</div>
+
+  </aside>
+
+
+  
+
+  
+    
+
+
+
+  <aside class="message message-newsletter related mb4" role="complementary">
+    <h2>Newsletter</h2>
+
+    
+
+    <p>Subscribe to my newsletter. 
+    <form
+      action="https://tinyletter.com/ajayramesh"
+      method="post"
+      target="popupwindow"
+      onsubmit="window.open('https://tinyletter.com/ajayramesh', 'popupwindow', 'scrollbars=yes,width=800,height=600');return true"
+      >
+      <div class="form-row">
+        <div class="col col-sm-6">
+          <label class="sr-only" for="tlemail">Email</label>
+          <input class="form-control" type="email" name="email" id="tlemail" placeholder="mail@example.com" />
+        </div>
+        <div class="col-auto">
+          <input class="btn btn-primary" type="submit" value="Subscribe" />
+        </div>
+      </div>
+      <input type="hidden" value="1" name="embed"/>
+    </form>
+    </p>
+
+  </aside>
+
+
+  
+
+  
+    
+
+
+
+<aside class="other-projects related mb4" role="complementary">
+  <h2>Other Projects</h2>
+  <div class="columns">
+    
+    
+      <div class="column column-1-2">
+        
+
+
+
+<article
+  class="project-card"
+  vocab="http://schema.org/" typeof="CreativeWork" resource="/projects/chapel/#project"
+  >
+  <meta property="name" content="chapel"/>
+  <meta property="image" content=""/>
+
+  <a href="/projects/chapel/" class="no-hover no-print-link flip-project" tabindex="-1">
+    <div class="project-card-img img sixteen-nine">
+      
+        
+
+
+  
+  <hy-img root-margin="512px" 
+    
+    src="/assets/projects/chapel.JPG"
+    
+    alt="chapel"
+  
+    
+  >
+    <noscript><img data-ignore 
+    
+    src="/assets/projects/chapel.JPG"
+    
+    alt="chapel"
+  
+    
+  /></noscript>
+    <span class="loading" slot="loading" hidden>
+      <span class="icon-cog"></span>
+    </span>
+  </hy-img>
+
+
+      
+    </div>
+  </a>
+  <h3 class="project-card-title">
+    <a href="/projects/chapel/" class="flip-title" property="mainEntityOfPage">chapel</a>
+  </h3>
+  
+    <p class="project-card-text fine" property="disambiguatingDescription">
+      Interoperability calls from Chapel-language to C for HDF5 library.
+
+    </p>
+  
+</article>
+
+      </div>
+    
+
+    
+    
+      <div class="column column-1-2">
+        
+
+
+
+<article
+  class="project-card"
+  vocab="http://schema.org/" typeof="CreativeWork" resource="/projects/bigfile-node-server-client/#project"
+  >
+  <meta property="name" content="bigfile-node-server-client"/>
+  <meta property="image" content=""/>
+
+  <a href="/projects/bigfile-node-server-client/" class="no-hover no-print-link flip-project" tabindex="-1">
+    <div class="project-card-img img sixteen-nine">
+      
+        
+
+
+  
+  <hy-img root-margin="512px" 
+    
+    src="/assets/projects/download.JPG"
+    
+    alt="bigfile-node-server-client"
+  
+    
+  >
+    <noscript><img data-ignore 
+    
+    src="/assets/projects/download.JPG"
+    
+    alt="bigfile-node-server-client"
+  
+    
+  /></noscript>
+    <span class="loading" slot="loading" hidden>
+      <span class="icon-cog"></span>
+    </span>
+  </hy-img>
+
+
+      
+    </div>
+  </a>
+  <h3 class="project-card-title">
+    <a href="/projects/bigfile-node-server-client/" class="flip-title" property="mainEntityOfPage">bigfile-node-server-client</a>
+  </h3>
+  
+    <p class="project-card-text fine" property="disambiguatingDescription">
+      Upload and download are essential for any kind of application. I was working on a project, in which I need to upload around 10-15GB of data over the net. Below mentioned source is a good tested example using NodeJS.
+
+    </p>
+  
+</article>
+
+      </div>
+    
+  </div>
+</aside>
+
+
+  
+
+
+  
+
+  
+<footer role="contentinfo">
+  <hr/>
+  
+    <p><small class="copyright">© 2018. All rights reserved.
+</small></p>
+  
+  
+  
+  <hr class="sr-only"/>
+</footer>
+
+
+</main>
+
+    <hy-drawer
+  class=""
+  align="left"
+  threshold="10"
+  touch-events
+  prevent-default
+>
+  <header id="_sidebar" class="sidebar" role="banner">
+    
+    <div class="sidebar-bg sidebar-overlay" style="background-color:rgb(25,55,71);background-image:url(/assets/img/pacific.jpg)"></div>
+
+    <div class="sidebar-sticky">
+      <div class="sidebar-about">
+        
+        <h2 class="h1"><a href="/">Notes by Air</a></h2>
+        
+        
+          <p class="">
+            Hi, I’m Ajay, Engineer &amp; Explorer.
+
+          </p>
+        
+      </div>
+
+      <nav class="sidebar-nav heading" role="navigation">
+        <span class="sr-only">Navigation:</span>
+<ul>
+  
+  
+  
+  
+    
+      <li>
+        <a
+          id="_navigation"
+          href="/projects/"
+          class="sidebar-nav-item active"
+          
+          >
+          Projects
+        </a>
+      </li>
+    
+  
+</ul>
+
+      </nav>
+
+      
+
+      <div class="sidebar-social">
+        <span class="sr-only">Social:</span>
+<ul>
+  
+    
+      
+
+
+
+  
+
+  
+  
+  
+  
+
+  
+
+  
+
+  <li>
+    <a href="https://github.com/ajayramezh" title="GitHub" class="no-mark-external">
+      <span class="icon-github"></span>
+      <span class="sr-only">GitHub</span>
+    </a>
+  </li>
+
+
+    
+      
+
+
+
+  
+
+  
+  
+  
+  
+
+  
+
+  
+
+  <li>
+    <a href="https://facebook.com/ajayramezh" title="Facebook" class="no-mark-external">
+      <span class="icon-facebook"></span>
+      <span class="sr-only">Facebook</span>
+    </a>
+  </li>
+
+
+    
+      
+
+
+
+  
+
+  
+  
+  
+  
+
+  
+
+  
+
+  <li>
+    <a href="http://stackoverflow.com/users/2094670/ajayramesh" title="Stack Overflow" class="no-mark-external">
+      <span class="icon-stackoverflow"></span>
+      <span class="sr-only">Stack Overflow</span>
+    </a>
+  </li>
+
+
+    
+      
+
+
+
+  
+
+  
+  
+  
+  
+
+  
+
+  
+
+  <li>
+    <a href="https://www.linkedin.com/in/ajay-ramesh" title="LinkedIn" class="no-mark-external">
+      <span class="icon-linkedin2"></span>
+      <span class="sr-only">LinkedIn</span>
+    </a>
+  </li>
+
+
+    
+  
+</ul>
+
+      </div>
+    </div>
+  </header>
+</hy-drawer>
+<hr class="sr-only" hidden />
+
+  
+</hy-push-state>
+
+
+  <script>!function(w, d) {
+    var h = new Date().getHours();
+    var m = h <= 6 || h >= 18 ? 'add' : 'remove';
+    d.body.classList[m]('dark-mode');
+  }(window, document);</script>
+
+
+
+  <!--[if !IE]><!---->
+  <script>loadJSDeferred(document.getElementById('_hrefJS').href);</script>
+  
+
+  <!--<![endif]-->
+
+  
+  <script>!function(w, d) {
+    w.ga=w.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+
+    /**/
+      ga('create', 'UA-121967457-1', 'auto');
+    /**/
+
+    var pushStateEl = d.getElementsByTagName('hy-push-state')[0];
+    var timeoutId;
+    pushStateEl.addEventListener('hy-push-state-load', function() {
+      w.clearTimeout(timeoutId);
+      timeoutId = w.setTimeout(function() {
+        ga('set', 'page', w.location.pathname);
+        ga('send', 'pageview');
+      }, 500);
+    });
+
+    d.addEventListener('hy--cookies-ok', function () {
+      w.ga(function(tracker) {
+        w.ga("set", "anonymizeIp", undefined);
+        localStorage && localStorage.setItem("ga--client-id", tracker.get("clientId"));
+      });
+    });
+
+    w.loadJSDeferred('https://www.google-analytics.com/analytics.js');
+  }(window, document);</script>
+
+
+
+  <script>!function(w, d) {
+    if ('serviceWorker' in w.navigator) {
+      /**/
+      w.navigator.serviceWorker.getRegistration()
+        .then(r => r.unregister())
+        .catch(() => {});
+      /**/
+    }
+  }(window, document);</script>
+
+
+
+
+
+
+<h2 class="sr-only" hidden>Templates (for web app):</h2>
+
+<template id="_animation-template" hidden>
+  <div class="animation-main fixed-top">
+    <div class="content">
+      <div class="page"></div>
+    </div>
+  </div>
+</template>
+
+<template id="_loading-template" hidden>
+  <div class="loading nav-btn fr">
+    <span class="sr-only">Loading…</span>
+    <span class="icon-cog"></span>
+  </div>
+</template>
+
+<template id="_error-template" hidden>
+  <div class="page">
+    <h1 class="page-title">Error</h1>
+    
+    
+    <p class="lead">
+      Sorry, an error occurred while loading <a class="this-link" href=""></a>.
+
+    </p>
+  </div>
+</template>
+
+<template id="_back-template" hidden>
+  <a id="_back" class="back nav-btn fl no-hover">
+    <span class="sr-only">Back</span>
+    <span class="icon-arrow-left2"></span>
+  </a>
+</template>
+
+<template id="_permalink-template" hidden>
+  <a href="#" class="permalink">
+    <span class="sr-only">Permalink</span>
+    <span class="icon-link"></span>
+  </a>
+</template>
+
+
+
+  <template id="_dark-mode-template" hidden>
+  <button id="_dark-mode" class="nav-btn no-hover fl" >
+    <span class="sr-only">Dark Mode</span>
+    <span class="icon-contrast"></span>
+  </button>
+</template>
+
+
+
+
+</body>
+</html>
