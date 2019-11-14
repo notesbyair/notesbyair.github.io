@@ -1,4 +1,4 @@
-// Copyright (c) 2018 Florian Klampfer <https://qwtel.com/>
+// Copyright (c) 2019 Florian Klampfer <https://qwtel.com/>
 //
 // This program is free software: you can redistribute it and/or modify
 // it under the terms of the GNU General Public License as published by
@@ -20,7 +20,7 @@
 // The shell cache keeps "landmark" resources, like CSS and JS, web fonts, etc.
 // which won't change between content updates.
 // 
-const SHELL_CACHE = "shell-8.1.1--v1--sw/";
+const SHELL_CACHE = "shell-8.5.2--v1--sw/";
 
 // A separate assets cache that won't be invalidated when there's a newer version of Hydejack.
 // NOTE: Whenever you make changes to any of the files in yor `assets` folder,
@@ -28,7 +28,7 @@ const SHELL_CACHE = "shell-8.1.1--v1--sw/";
 const ASSETS_CACHE = "assets--v1--sw/";
 
 // The cache for regular content, which will be invalidated every time you make a new build.
-const CONTENT_CACHE = "content--2019-01-26T14:05:26-06:00--sw/";
+const CONTENT_CACHE = "content--2019-11-14T12:28:03-06:00--sw/";
 
 // A URL search parameter you can add to external assets to cache them in the service worker.
 const CACHE_SEARCH_PARAM = "sw-cache";
@@ -49,9 +49,8 @@ const GOOGLE_FONTS = "https://fonts.googleapis.com/css?family=Roboto+Slab:400%7C
 // 
 
 const SHELL_FILES = [
-  "/assets/bower_components/fontfaceobserver/fontfaceobserver.standalone.js",
-  "/assets/js/hydejack-8.1.1.js",
-  "/assets/css/hydejack-8.1.1.css",
+  "/assets/js/hydejack-8.5.2.js",
+  "/assets/css/hydejack-8.5.2.css",
   "/assets/img/swipe.svg",
   ICON_FONT,
   /**/ GOOGLE_FONTS /**/,
