@@ -1,0 +1,168 @@
+
+
+{
+  "pages": [
+    {
+      
+      
+      
+      "content": "\n",
+      "url": "/404.html"
+    },{
+      
+      "title": "Blog",
+      "description": "The official Hydejack blog. Version updates, example content and how-to guides on how to blog with Jekyll.\n",
+      "content": "\n",
+      "url": "/blog/"
+    },{
+      
+      
+      
+      "content": "\n",
+      "url": "/offline.html"
+    },{
+      
+      "title": "Posts",
+      "description": "This is the list layout for showing blog posts, which shows just the title and groups them by year of publication. Check out the blog layout for comparison.\n",
+      "content": "\n",
+      "url": "/posts/"
+    },{
+      
+      "title": "Projects",
+      "description": "\n",
+      "content": "notesbyair@gmail.com.\n\n\n",
+      "url": "/projects/"
+    },{
+      
+      "title": "Résumé*",
+      "description": "This is the description of your resume page, as it will be seen by search engines. You’ll probably want to modify it in resume.md, and maybe set hide_description to true in the front matter.\n",
+      "content": "\n",
+      "url": "/resume/"
+    }
+  ], 
+  "documents": [
+    {
+      
+      "title": "Solid Design Principle Revisit",
+      "date": "2020-05-23 00:00:00 +0000",
+      "description": "This post is dedicated to those who are trying to learn the SOLID design principle. Some of my quick cases will give you easy ideas, and follow the reference links to understand more.   Five principles of S.O.L.I.D by Robert C. Martin is core and fundamental to any Agile Development or Adaptive software development. Let’s get started.\n",
+      "content": "\n  Single-Responsiblity Principle\n  Open-closed Principle\n  Liskov substitution principle\n  Interface Segrgation Principle\n  Dependency Inversion Principle\n  References\n\n\nFive principles of S.O.L.I.D by Robert C. Martin is core and fundamental to any Agile Development or Adaptive software development. Let’s get started.\n\nSingle-Responsiblity Principle\n\n\n  Keep it simple, only one object is responsible for a feature in your entire application.\n\n\nTry this: Can you think of objects where it is similar to a Notepad and methods(like saving in pdf/json/etc)?\nThere are several ways we can design it, I have added some best practices below, let me know your thoughts.\n\n\n  Best practice\n\n\nThe below code snippet is having two classes, one to hold Notepad content and another generate Report in PDF.\n\npublic class Doc {\n    private String content\n    ...\n    Doc(String content) {\n        this.content = content\n    }\n    ...\n}\n\n// Report in seperate class\npublic class Report {\n    public PDF output;\n    ...\n    Report(String doc) { ... }\n    private String pdf() { ... }\n    ...\n}\n\n\n\n  Not recommended way\n\n\nBelow Doc class is having content and report generation code, so the Doc has two responsibilities, one is handling content and another is generating the report.\n\npublic class Doc {\n    String content;\n    String reportJson;\n    String reportPdf;\n\n    Doc(String content) {\n        this.content = content;\n        this.reportJson = json();\n        this.reportPdf = pdf();\n    }\n\n    private String json() { ... }\n    private String pdf() { ... }\n}\n\n\nWhy the above single class is not recommended?\n\n\n  Since generating a report in a different format will change from time to time, keeping it in Doc class would not be a good idea(changing existing source code involves in lots of testing — so maintenance cost increases), instead, keep Doc class just for storing the content of the Doc.\n\n\nNotes\n\n\n  Repeat: Keep it simple, if it is complex to your intuition, then definitely it will be more complex to other developers.\n  Caution: The above example is just to illustrate the Principle of Single Responsibility. Not to show how to design actual notepad.\n\n\nOpen-closed Principle\n\n  “Software entities (classes, modules, functions, etc.** should be open for extension, but closed for modification.”\n\n\nTry this: Imagine you are building an MS Office word 2020. The above code is very old version, has just two types of export options(pdf, json), but new MSWord2020 has some new features: — such as text to speech. Also, you will be adding new features after few years. How will do you design ?\n\nThere are several ways we can design it, I have added some Do’s/Don’t below, check across your solution.\n\n\n  Best practice\n\n\ninterface doc { void display(String content); }\n\ninterface doc_feature1 { void feature1(String content); }\n\nclass MSWord2020 implements doc, doc_feature1\n{\n    public void display(String content) {  ... }\n    public void feature1(String content) {  ... }\n}\n\n\n\n  Add new feature in 2030\n\n\ninterface doc_feature2 { void feature2(String content); }\n\nclass MSWord2030 extends MSWord2020 implements doc_feature2 {\n    public void feature2(String content)  {  ... }\n}\n\n\n\n  Not recommended way\n\n\nAlternatively, you can modify the original class to add new feature 2, like below — Below code does not obey Rule 1, i.e, single responsibility principle\n\nclass MSWord2030 {\n    void display() { ... }\n    void feature1() { ... }\n    void feature2() { ... }\n    void feature3() { ... }\n}\n\n\nNotes\n\n  Its always better to program your code in Interfaces and apply inheritance where possible.\n\n\nLiskov substitution principle\n\nThis is the most important and tricky rule to understand, I read several blogs and guides. Try to read this one at least twice.\n\nQuick Test: Are you overriding a method or implementing an interface? If Yes, you must test this rule thoroughly.\n\nS is Child or Extends B, Can you make B = S in your code?\n\n\nCan you succeed by Human = HumanoidRobot? Of course not!\n\n\npublic interface Human {\n    public void eat();\n}\npublic class HumanoidRobot extends Human {\n     // can robot eat ?\n}\n\nHuman obj1 = new Human()\nHuman obj2 = new HumanoidRobot()\n\n\nRepeat: If a class, S, is a subtype of a class, B, then S can be used to replace all instances of B without changing the behaviors of a program. The logic behind this is straightforward. If S is a subtype of B, then it can be expected that S will have the same behaviors as B. Therefore, S can be used in place of B and it would not affect the software. This means that inheritance can be tested by applying substitution.\n\n\n\nNotes\nBelow notes are from the design pattern course in Coursera, feel free to check out.\n\n  The base class is the more generalized class, and therefore, its attributes and behaviors should reflect it. The names given to the attributes and methods, as well as the implementation of each method must be broad enough that all subclasses can use them.\n  If inheritance is not used correctly, it can lead to a violation of the “Liskov Substitution Principle”. This principle uses substitution to determine whether or not inheritance has been properly used.\n  These rules are not programmatically enforced by any object-oriented language. In fact, overriding a base class’s behaviors can have advantages. Subclasses can improve the performance of behaviors of its base class, without changing the expected results of said behavior.\n\n\nsubclass uses different sorting algo, but same behavior.\n\nAnother example: let’s take a look at a class that is an abstraction of a department store. The base class may implement a naive searching algorithm that, in the worst case, iterates through the entire list of the items that the store sells. A subclass could override this method and provide a better search algorithm. Although the approach that the subclass takes to searching is different, the expected behavior and outcome are the same.\n\n\nInterface Segrgation Principle\nSuppose you have an interface for a Robot, operations include run, fight, walk, swim, shoot. Now another company wants to use your code base for Robot and extend to make a Robot which can Speak. But here is the problem, the company doesn’t want to implement swim, fight and shoot operations. So company writes something like below -\n\n\n  Not recommended way\n\n\nThe below code violates Principle 3. Never ever changes the behavior and force the client to implement the behavior. Shoot, Swim, and Fight are irrelevant to New Client.\n\npublic interface Human {\n    public void eat();\n}\npublic class HumanoidRobot extends Human {\n    // Humanoid Robot  - A humanoid is something that has an appearance\n    // resembling a human without actually being one.\n    // can robot eat ? No\n    @override\n    publi void eat() {\n        // do nothing\n    }\n}\n\n\n\n  What is the problem?\n\n\nYou are making client or company implement the operations forcefully. So in order avoid this we need to have interface segregation principle. It’s quite simple, that no class should be forced to depend on methods it does not use.\n\n\n  Best practice\n\n\nSolution to the Don’t part, now read below snippet and compare with above.\n\npublic interface Everything { run() }\n// similar to Object class(root class, it has most generalized methods) in Java\n\npublic class HumanoidRobot extends Everything {\n    public void run() {\n        // code to run using batteries.\n    }\n}\npublic class Human extends Everything {\n    public void run() {\n        // code to run using physical streangth.\n    }\n}\n\n// Example:\n    Everything ev = new HumanoidRobot()\n    Everything ev = new Human()\n// if you apply the substition rule it satisfies, since both does the run operation but differently.\n\n\nDependency Inversion Principle\n\nFrom wikipedia:\n\n  High-level modules should not depend on low-level modules. Both should depend on abstractions.\nAbstractions should not depend on details. Details should depend on abstractions\n\n\nQuite easy to understand using examples\nFirst, Take a look at Java Object Class: Root class to all objects. For example, Take Number, String, Double etc Objects in java extends Object class.\nAll above principles apply to this one. Here suppose you have Robot interface, then all objects of Robot should be referring to an abstraction rather than the concrete implementation. Referring to the above code(Principle-4: Interface Segregation):\n\n\n  Best practice\n\n\nRobot r = new SpeakingRobot()\n\n\n\n  Implementation of SpeakingRobot Class\n\n\npublic interface Robot {\n     void run();\n     void shoot();\n     void swim();\n     void fight();\n     void walk();\n }\n\n// company A wants to extend the Robot to add Speaking feature\n\n\npublic SpeakingRobot extends Robot {\n     @Overrides\n     void run() {\n         // .. inherits from Robot\n     }\n\n     @Overrides\n     void shoot() {\n         // do nothing\n         // return;\n     }\n\n     @Overrides\n     void swim() {\n          // do nothing\n         // return;\n     }\n\n     @Overrides\n     void fight(){\n          // do nothing\n         // return;\n     }\n\n     @Overrides\n     void walk() {\n         // .. inherits from Robot\n     }\n\n     @Overrides\n     void speak() {\n        // code to speak\n     }\n }\n\n\n\n  Not recommended way\n\n\nSpeakingRobot r = new SpeakingRobot() // DONT Declare like this :)\n\n\n  SpeakingRobot class is an actual implementation(low-level class), so any object which might change in future should depend on abstractions(Robot interface is high-level abstraction here).\n\n\ninterface Robot {\n    // very common features, every client must implement are below.\n    void run();\n    void walk();\n}\n\ninterface ShootingRobot extends Robot { void shoot(); }\ninterface SwimmingRobot extends Robot { void swim(); }\ninterface FightingRobot extends Robot { void fight(); }\n\nclass  SpeakingRobot  implements  Robot{\n\n\n    void speak() {\n        // code to speak\n    }\n\n\n    @Override\n    public void run() {\n        // code to run\n    }\n\n    @Override\n    public void walk() {\n        // code to walk\n    }\n}\n\n\nReferences\n\n  Coursera - Design Patterns \n  Liskov Substitution Principle from Dzone\n  Liskov Substitution Principle from Hackernoon\n  Liskov Substitution Principle from Stackoverflow\n  Liskov Substitution Principle from Actual Paper\n\n",
+      "categories": ["cs"],
+      "tags": [],
+      
+      "collection": "posts",
+      "url": "/blog/cs/2020-05-23-solid-design-principle-revisit/"
+    },{
+      
+      "title": "How to install multiple version of Cuda and cuDNN ?",
+      "date": "2020-05-26 00:00:00 +0000",
+      "description": "One of the fundamental problems I faced was experimenting with different versions of CUDA and cuDNN Lib on Ubuntu. This blog is my final hack on managing multiple versions of Cuda and some links.\n",
+      "content": "\n  References\n  Notes on CUDA installation\n  cuDNN installation on all CUDA versions.\n\n\nReferences\n\nFirst of all, I must thank two blog posts, which made my life easier.\n\n  https://blog.kovalevskyi.com/multiple-version-of-cuda-libraries-on-the-same-machine-b9502d50ae77\n  https://www.pugetsystems.com/labs/hpc/How-to-install-CUDA-9-2-on-Ubuntu-18-04-1184/\n\n\nNotes on CUDA installation\n\n\n  Do not install CUDA drivers from CUDA-toolkit. Manually install the latest drivers for your graphics card.\n  Do not create symbolic link during installation process, since we need multiple versions.\n\n\nAfter following above blog post you will be able to install multiple CUDA versions.\nI need a simple and easy way to manage it, sharing my way of managing the CUDA versions below.\n\nIf you want to load command-prompt/shell with different version of CUDA, then try below small utility function to switch easily different versions of CUDA.\n\n\n  vim ~/.bashrc add below contents to bottom of the file\n\n\n# add below to your env bash file.\n\nfunction _cuda {\n   v=$1\n   export PATH=$PATH:/usr/local/cuda-$v/bin\n   export CUDADIR=/usr/local/cuda-$v\n   export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/cuda-$v/lib64\n   nvcc --version\n}\n_cuda 10.1 # change the version of your like to load bash. \n\n\ncuDNN installation on all CUDA versions.\nFinally, Installing cuDNN is just like copying the source header files into the respective CUDA toolkit path. \nDownload and extract the cuDNN tar file, then run below script to copy lib into right CUDA Dirs.\n\nAfter extraction of cudnn zip, create cudnn_install.sh file and place it like below.\najayramesh @ ubox-r9-1804 ~/tmp/cudnn-10.2-linux-x64-v7.6.5.32\n└─ $ ▶ tree -L 2\n.\n├── cuda\n│   ├── include\n│   ├── lib64\n│   └── NVIDIA_SLA_cuDNN_Support.txt\n└── cudnn_install.sh\n\n3 directories, 2 files\n\n\n\n  add below to a cudnn_install.sh and run this command  chmod +x cudnn_install.sh &amp; sudo ./cudnn_install.sh on extracted cuDNN zip folder\n\n\nread -p \"CUDA-version: \" ver\ncp cuda/include/cudnn.h /usr/local/cuda-\"${ver}\"/include\ncp cuda/lib64/libcudnn* /usr/local/cuda-\"${ver}\"/lib64\nchmod a+r /usr/local/cuda*/include/cudnn.h /usr/local/cuda*/lib64/libcudnn*\n\n\nUsing above blogs and my tiny utility script helping a lot to manage multiple version of CUDA to run some old experiments in CV and AI.\najayramesh @ ubox-r9-1804 /usr/local\n└─ $ ▶ tree -L 1\n.\n├── bin\n├── cuda-10.0\n├── cuda-10.1\n├── cuda-10.2\n├── cuda-9.0\n├── cuda-9.1\n├── cuda-9.2\n├── etc\n├── games\n├── include\n├── lib\n├── man -&gt; share/man\n├── sbin\n├── share\n├── src\n└── texlive\n\n16 directories, 0 files\n\n\n\nLet me know for any comments.\n",
+      "categories": ["cs"],
+      "tags": [],
+      
+      "collection": "posts",
+      "url": "/blog/cs/2020-05-26-installing-multiple-versions-of-cuda-cudnn/"
+    },{
+      
+      "title": "cs",
+      "date": "2020-08-25 21:58:20 +0000",
+      "description": "All Computer Science related blogs\n",
+      "content": "Work in progress …\n",
+      "categories": [],
+      "tags": [],
+      
+      "collection": "featured_categories",
+      "url": "/blog/cs/"
+    },{
+      "image": "/assets/projects/oauth.png",
+      "title": "OAuth-Implementation",
+      "date": "2016-01-02 00:00:00 +0000",
+      
+      "content": "\n\n\n\n\n\n\n\n",
+      "categories": [],
+      "tags": [],
+      
+      "collection": "projects",
+      "url": "/projects/OAuth-Implementation/"
+    },{
+      "image": "/assets/projects/mld.png",
+      "title": "digit-recognition",
+      "date": "2016-12-10 00:00:00 +0000",
+      
+      "content": "\n",
+      "categories": [],
+      "tags": [],
+      
+      "collection": "projects",
+      "url": "/projects/digit-recognition/"
+    },{
+      "image": "/assets/projects/chapel.JPG",
+      "title": "chapel",
+      "date": "2017-05-10 00:00:00 +0000",
+      "description": "Interoperability calls from Chapel-language to C for HDF5 library.\n",
+      "content": "HDF5 (note: not HDFS) is a common data interchange format for scientific applications. Since Chapel is intended to work well for scientific programming, having HDF5 support is important.\n\n\n  In this open-source contribution, I have developed a simple POC which mimics the overall idea to support the HDF5 library in Chapel language\n\n",
+      "categories": [],
+      "tags": [],
+      
+      "collection": "projects",
+      "url": "/projects/chapel/"
+    },{
+      "image": "/assets/projects/calculator.PNG",
+      "title": "ios-calculator",
+      "date": "2017-06-05 00:00:00 +0000",
+      "description": "A simple iOS app\n",
+      "content": "\n\n//\n//  CalculatorBrain.swift\n//  Calculator\n//\n//  Created by Ajay Ramesh on 5/21/17.\n//  Copyright © 2017 Ajay Ramesh. All rights reserved.\n//\n\nimport Foundation\n\nfunc test(t:Double) -&gt;Void{\n    print(\"\\(t)\");\n}\nstruct CalculatorBrain {\n    private var accumalator : Double?\n    \n    private enum Operation {\n        case constant(Double)\n        case unaryOperation((Double) -&gt; Double)\n        case binaryOperation((Double, Double) -&gt; Double)\n        case equals\n        case dotTODO((Double)-&gt;Void)\n    }\n    \n    private var operations: Dictionary&lt;String, Operation&gt; = [\n        \"π\" : Operation.constant(Double.pi),\n        \"e\" : Operation.constant(M_E),\n        \"√\" : Operation.unaryOperation(sqrt),\n        \"cos\" : Operation.unaryOperation(cos),\n        \"±\" : Operation.unaryOperation({-$0}),\n        \"×\" : Operation.binaryOperation({ $0 * $1} ),\n        \"÷\" : Operation.binaryOperation({ $0 / $1}),\n        \"+\" : Operation.binaryOperation({ $0 + $1} ),\n        \"－\" : Operation.binaryOperation({ $0 - $1}),\n        \"=\" : Operation.equals,\n        \".\" : Operation.dotTODO(test)\n    ]\n    \n    \n    mutating func performOperation(_ symbol: String )  {\n        if let operation = operations[symbol] {\n            switch operation {\n            case .constant(let value):\n                accumalator = value\n            case .unaryOperation(let function):\n                if accumalator != nil {\n                    accumalator = function(accumalator!)\n                }\n            case .binaryOperation(let function):\n                if accumalator != nil {\n                    pendingBinaryOperation = PendingBinaryOperation(function: function, firstOperand: accumalator!)\n                    accumalator = nil\n                }\n            case .equals:\n                performPendingBinaryOperation()\n            \n            case .dotTODO(let function):\n                if(accumalator != nil ){\n                    function(accumalator!)\n                }\n            }\n        }\n    }\n    \n    mutating private func performPendingBinaryOperation(){\n        if pendingBinaryOperation != nil &amp;&amp; accumalator != nil {\n            accumalator = pendingBinaryOperation!.perform(with: accumalator!)\n            pendingBinaryOperation = nil\n        }\n        \n    }\n    \n    private var pendingBinaryOperation: PendingBinaryOperation?\n    \n    private struct PendingBinaryOperation {\n        let function: (Double, Double) -&gt; Double\n        let firstOperand: Double\n        \n        func perform(with secondOperand:Double) -&gt; Double {\n            return function(firstOperand, secondOperand)\n        }\n    }\n    \n    mutating func setOperand(_ operand: Double)  {\n        accumalator = operand\n    }\n    \n    var result: Double? {\n        get {\n            return accumalator\n        }\n    }\n}\n\n\n  Main Controller source code\n\n\n//\n//  ViewController.swift\n//  Calculator\n//\n//  Created by Ajay Ramesh on 4/4/17.\n//  Copyright © 2017 Ajay Ramesh. All rights reserved.\n//\nimport UIKit\n\nclass ViewController: UIViewController {\n    \n    @IBOutlet weak var display: UILabel!\n    \n    var userIsInMiddleOfTyping = false\n    \n    @IBAction func touchDigit(_ sender: UIButton) {\n        let digit = sender.currentTitle!\n        if userIsInMiddleOfTyping{\n            let textCurrentlyInDisplay = display!.text!\n            display.text = textCurrentlyInDisplay + digit\n        } else {\n            display.text! = digit\n            userIsInMiddleOfTyping = true\n        }\n    }\n    \n    var displayValue : Double{\n        get{\n            return Double(display.text!)!\n        }\n        set {\n            display.text = String(newValue)\n        }\n    }\n    \n    private var brain = CalculatorBrain()\n    \n    @IBAction func performOperation(_ sender: UIButton) {\n        if(userIsInMiddleOfTyping){\n            brain.setOperand(displayValue)\n            userIsInMiddleOfTyping = false\n        }\n        \n        if let mathematicalSymbol = sender.currentTitle {\n            brain.performOperation(mathematicalSymbol)\n        }\n        if let result = brain.result {\n            displayValue = result\n        }\n    }\n    \n}\n\n",
+      "categories": [],
+      "tags": [],
+      
+      "collection": "projects",
+      "url": "/projects/ios-calculator/"
+    },{
+      "image": "/assets/projects/download.JPG",
+      "title": "bigfile-node-server-client",
+      "date": "2017-06-10 00:00:00 +0000",
+      
+      "content": "\n  Download big file with progress bar in Nodejs\n\n\n// Working code \nvar fs = require('fs');\nvar request = require('request');\nvar progress = require('request-progress');\nvar url = 'http://localhost:4181';\nvar filename = 's.zip';\nvar pre = '----';\n\ndownloadManager = function(url,filename){\n    progress(request(url), {\n\tthrottle:500\n    })\t.on('progress', function (state) {\n\t    process.stdout.write(pre+''+ (Math.round(state.percent*100))+\"%\");\n\t})\n\t.on('error', function (err) {\n\t    console.log('error :( '+err);\n\t})\n\t.on('end', function () {\n\t    console.log(pre+'100% \\n Download Completed');\n\t})\n\t.pipe(fs.createWriteStream(filename));\n};\n\n\ndownloadManager(url,filename);\n\n\n\n  File Server Code is below\n\n\nvar http = require(\"http\");\nvar fs = require(\"fs\");\nvar location = \"base/RealBigFile.zip\";\nvar PORT = 4181;\n\nvar fileServerInit = function (loc) {\n    var serv = http.createServer(function (req, res) {\n        var stat = fs.statSync(loc);\n        res.writeHeader(200, {\n            \"Content-Length\": stat.size\n        });\n        var fReadStream = fs.createReadStream(loc);\n        fReadStream.on('data', function (chunk) {\n            if (!res.write(chunk)) {\n                fReadStream.pause();\n            }\n        });\n        fReadStream.on('end', function () {\n            console.log(\"File is uploaded\")\n            serv.close();\n        });\n        res.on(\"drain\", function () {\n            fReadStream.resume();\n        });\n    });\n    console.log(\"File is ready \"+loc+\" Listening for incoming connection\");\n    serv.listen(PORT);\n    \n    \n}\n\nfileServerInit(location);\n\n",
+      "categories": [],
+      "tags": [],
+      
+      "collection": "projects",
+      "url": "/projects/bigfile-node-server-client/"
+    },{
+      "image": "/assets/projects/cd.jpg",
+      "title": "CD",
+      "date": "2017-12-01 00:00:00 +0000",
+      "description": "CD - Create Dataset is a by product of Active learning on any dataset. By involving additional rational, we are creating another better training set using CD web ui and its Active learning loop. We witnessed by incorporating rational we achieved better accuracy and transparency in the prediction. We also shown comparison between with and without rational learning, the predictions of with rational from human are more trust worthy and making more sense when it is compared to actual results.\n",
+      "content": "\n",
+      "categories": [],
+      "tags": [],
+      
+      "collection": "projects",
+      "url": "/projects/CD/"
+    },{
+      "image": "/assets/projects/cake.JPG",
+      "title": "CAKE",
+      "date": "2017-12-15 00:00:00 +0000",
+      "description": "Surved on all major Scheduling Frameworks, such as Borg, YARN, Paragon, Omega, Mesos, etc. Proposed another frameworkd using AI(Genetic Algortihm) and CUDA power.\n",
+      "content": "A good plan consumes all available facts during decision making. An excellent plan can be intelligent if it takes further inferences from available facts. In short, we are talking about Artificial Intelligence in Scheduling. We see AI is the new electricity for any application. Scheduling is the key to an Application and Organization Success. A good scheduling will make the application faster if and only if the scheduling is fast. Organization benefits if scheduling maximizes the cluster utilization. In short, scheduling’s key idea is to maximize cluster utilization use and minimize latency. The existing framework does proper scheduling but uses the only tiny portion of Knowledge.\n\nCluster Allocation for Kernel Execution  This paper summarizes our study of many scheduler architectures, and our own design of new pluggable scheduler framework called CAKE, which uses Genetic Algorithm, an Artificial Intelligence technique, for scheduling. We have presented our thoughts about why we need CAKE framework and we have also mentioned few self-critics for it.\n\nWe have also given proof of concept for CAKE using Genetic Algorithm. Our research notes section describes why advanced concepts (AI, etc) in scheduling must be unified by all researchers in Apache Open Source project, such that any application or organization will not worry about scheduling at all.\n",
+      "categories": [],
+      "tags": [],
+      
+      "collection": "projects",
+      "url": "/projects/CAKE/"
+    },{
+      "image": "/assets/projects/vertico.jpg",
+      "title": "VERTICO",
+      "date": "2018-01-02 00:00:00 +0000",
+      
+      "content": "In Volunteer Computing (VC), Volunteers donate their idle computers to many scientific projects like\nFolding@home for understanding protein folding and how it relates to disease. VC applies to the particular set of problems.\n\nTypically VC projects work by breaking the problems into chunks called work units, which are sent to computers around\nthe world to be analyzed. We are aiming to extend the idea of VC to different\nkinds of applications which live in the cloud, so that we minimize the operating cost.\n\nVC for Cloud is challenging problem till today. Addressing those issues and providing\npossible solution design is our goal.\n\n  The end product will have many benefits, for example, an organization can minimize the Power bills and donate monetary credits to Volunteers.\n\n\nIt is like a win-win situation for volunteers and organization.\nSo we introduce VERTICO, stands for Volunteer Computing Research Cloud Framework. In this paper, we are giving\npossible solution design for VERTICO and its evaluations.\n",
+      "categories": [],
+      "tags": [],
+      
+      "collection": "projects",
+      "url": "/projects/VERTICO/"
+    }
+  ]
+}
+
