@@ -1,7 +1,16 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.1.1">Jekyll</generator><link href="https://notesbyair.github.io//feed.xml" rel="self" type="application/atom+xml" /><link href="https://notesbyair.github.io//" rel="alternate" type="text/html" hreflang="en" /><updated>2020-08-25T22:04:02+00:00</updated><id>https://notesbyair.github.io//feed.xml</id><title type="html">Notes by Air</title><subtitle></subtitle><author><name>Ajay Ramesh</name><email>notesbyair@mgmail.com</email></author><entry><title type="html">How to install multiple version of Cuda and cuDNN ?</title><link href="https://notesbyair.github.io//blog/cs/2020-05-26-installing-multiple-versions-of-cuda-cudnn/" rel="alternate" type="text/html" title="How to install multiple version of Cuda and cuDNN ?" /><published>2020-05-26T00:00:00+00:00</published><updated>2020-08-25T02:23:39+00:00</updated><id>https://notesbyair.github.io//blog/cs/installing-multiple-versions-of-cuda-cudnn</id><content type="html" xml:base="https://notesbyair.github.io//blog/cs/2020-05-26-installing-multiple-versions-of-cuda-cudnn/">&lt;ul id=&quot;markdown-toc&quot;&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.1.1">Jekyll</generator><link href="https://notesbyair.github.io//feed.xml" rel="self" type="application/atom+xml" /><link href="https://notesbyair.github.io//" rel="alternate" type="text/html" hreflang="en" /><updated>2020-08-27T13:31:05+00:00</updated><id>https://notesbyair.github.io//feed.xml</id><title type="html">Notes by Air</title><subtitle></subtitle><author><name>Ajay Ramesh</name><email>notesbyair@mgmail.com</email></author><entry><title type="html">How to manage multiple versions of Cuda and cuDNN ?</title><link href="https://notesbyair.github.io//blog/cs/2020-05-26-installing-multiple-versions-of-cuda-cudnn/" rel="alternate" type="text/html" title="How to manage multiple versions of Cuda and cuDNN ?" /><published>2020-05-26T00:00:00+00:00</published><updated>2020-08-27T13:31:04+00:00</updated><id>https://notesbyair.github.io//blog/cs/installing-multiple-versions-of-cuda-cudnn</id><content type="html" xml:base="https://notesbyair.github.io//blog/cs/2020-05-26-installing-multiple-versions-of-cuda-cudnn/">&lt;ul id=&quot;markdown-toc&quot;&gt;
   &lt;li&gt;&lt;a href=&quot;#references&quot; id=&quot;markdown-toc-references&quot;&gt;References&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;#notes-on-cuda-installation&quot; id=&quot;markdown-toc-notes-on-cuda-installation&quot;&gt;Notes on CUDA installation&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;#cudnn-installation-on-all-cuda-versions&quot; id=&quot;markdown-toc-cudnn-installation-on-all-cuda-versions&quot;&gt;cuDNN installation on all CUDA versions.&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#get-started&quot; id=&quot;markdown-toc-get-started&quot;&gt;Get Started&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#cuda-installation&quot; id=&quot;markdown-toc-cuda-installation&quot;&gt;CUDA installation&lt;/a&gt;    &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;#the-most-important-steps-to-follow-during-cuda-installation&quot; id=&quot;markdown-toc-the-most-important-steps-to-follow-during-cuda-installation&quot;&gt;The most important steps to follow during CUDA installation.&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#automation-script&quot; id=&quot;markdown-toc-automation-script&quot;&gt;Automation Script&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#cudnn-installation-on-all-cuda-versions&quot; id=&quot;markdown-toc-cudnn-installation-on-all-cuda-versions&quot;&gt;cuDNN installation on all CUDA versions.&lt;/a&gt;    &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;#script-to-move-cudnn-to-right-folders&quot; id=&quot;markdown-toc-script-to-move-cudnn-to-right-folders&quot;&gt;Script to move cuDNN to right folders&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#final-version&quot; id=&quot;markdown-toc-final-version&quot;&gt;Final Version&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;h2 id=&quot;references&quot;&gt;References&lt;/h2&gt;
@@ -12,17 +21,28 @@
   &lt;li&gt;https://www.pugetsystems.com/labs/hpc/How-to-install-CUDA-9-2-on-Ubuntu-18-04-1184/&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h2 id=&quot;notes-on-cuda-installation&quot;&gt;Notes on CUDA installation&lt;/h2&gt;
+&lt;h2 id=&quot;get-started&quot;&gt;Get Started&lt;/h2&gt;
+
+&lt;p&gt;Why we are doing this ?&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;Suppose you want to run some old projects from GitHub.&lt;/li&gt;
+  &lt;li&gt;Experiment with new versions of &lt;a href=&quot;https://developer.nvidia.com/cuda-toolkit&quot;&gt;CUDA&lt;/a&gt;, and experiment new features of it.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;cuda-installation&quot;&gt;CUDA installation&lt;/h2&gt;
+
+&lt;p&gt;Before starting, we need to download CUDA or follow steps from NVIDIA.&lt;/p&gt;
+
+&lt;h4 id=&quot;the-most-important-steps-to-follow-during-cuda-installation&quot;&gt;The most important steps to follow during CUDA installation.&lt;/h4&gt;
 
 &lt;ol&gt;
   &lt;li&gt;&lt;em&gt;Do not install CUDA drivers&lt;/em&gt; from CUDA-toolkit. Manually install the latest drivers for your graphics card.&lt;/li&gt;
-  &lt;li&gt;&lt;em&gt;Do not create symbolic link&lt;/em&gt; during installation process, since we need multiple versions.&lt;/li&gt;
+  &lt;li&gt;&lt;em&gt;Do not create the symbolic link&lt;/em&gt; during installation process, since we need multiple versions.&lt;/li&gt;
 &lt;/ol&gt;
 
-&lt;p&gt;After following above blog post you will be able to install multiple CUDA versions.
-I need a simple and easy way to manage it, sharing my way of managing the CUDA versions below.&lt;/p&gt;
+&lt;h3 id=&quot;automation-script&quot;&gt;Automation Script&lt;/h3&gt;
 
-&lt;p&gt;If you want to load command-prompt/shell with different version of CUDA, then try below small utility function to switch easily different versions of CUDA.&lt;/p&gt;
+&lt;p&gt;The blogs that I mentioned earlier help a lot, and then I added the below script to make my life even more accessible.&lt;/p&gt;
 
 &lt;blockquote&gt;
   &lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;vim ~/.bashrc&lt;/code&gt; add below contents to bottom of the file&lt;/p&gt;
@@ -30,17 +50,18 @@ I need a simple and easy way to manage it, sharing my way of managing the CUDA v
 
 &lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c&quot;&gt;# add below to your env bash file.&lt;/span&gt;
 
-&lt;span class=&quot;k&quot;&gt;function &lt;/span&gt;_cuda &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;function &lt;/span&gt;_switch_cuda &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
    &lt;span class=&quot;nv&quot;&gt;v&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$1&lt;/span&gt;
    &lt;span class=&quot;nb&quot;&gt;export &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;PATH&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$PATH&lt;/span&gt;:/usr/local/cuda-&lt;span class=&quot;nv&quot;&gt;$v&lt;/span&gt;/bin
    &lt;span class=&quot;nb&quot;&gt;export &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;CUDADIR&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;/usr/local/cuda-&lt;span class=&quot;nv&quot;&gt;$v&lt;/span&gt;
    &lt;span class=&quot;nb&quot;&gt;export &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;LD_LIBRARY_PATH&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$LD_LIBRARY_PATH&lt;/span&gt;:/usr/local/cuda-&lt;span class=&quot;nv&quot;&gt;$v&lt;/span&gt;/lib64
    nvcc &lt;span class=&quot;nt&quot;&gt;--version&lt;/span&gt;
 &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
-_cuda 10.1 &lt;span class=&quot;c&quot;&gt;# change the version of your like to load bash. &lt;/span&gt;
-
+_switch_cuda 10.1 &lt;span class=&quot;c&quot;&gt;# change the version of your like to load bash. &lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
 &lt;h2 id=&quot;cudnn-installation-on-all-cuda-versions&quot;&gt;cuDNN installation on all CUDA versions.&lt;/h2&gt;
+
 &lt;p&gt;Finally, Installing cuDNN is just like copying the source header files into the respective CUDA toolkit path. 
 Download and extract the cuDNN tar file, then run below script to copy lib into right CUDA Dirs.&lt;/p&gt;
 
@@ -57,9 +78,8 @@ ajayramesh @ ubox-r9-1804 ~/tmp/cudnn-10.2-linux-x64-v7.6.5.32
 3 directories, 2 files
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;blockquote&gt;
-  &lt;p&gt;add below to a cudnn_install.sh and run this command  &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;chmod +x cudnn_install.sh &amp;amp; sudo ./cudnn_install.sh&lt;/code&gt; on extracted cuDNN zip folder&lt;/p&gt;
-&lt;/blockquote&gt;
+&lt;h3 id=&quot;script-to-move-cudnn-to-right-folders&quot;&gt;Script to move cuDNN to right folders&lt;/h3&gt;
+&lt;p&gt;Add below content to new &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;cudnn_install.sh&lt;/code&gt; and run this command  &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;chmod +x cudnn_install.sh &amp;amp; sudo ./cudnn_install.sh&lt;/code&gt; on extracted cuDNN zip folder&lt;/p&gt;
 
 &lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;read&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-p&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;CUDA-version: &quot;&lt;/span&gt; ver
 &lt;span class=&quot;nb&quot;&gt;cp &lt;/span&gt;cuda/include/cudnn.h /usr/local/cuda-&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;${&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;ver&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;/include
@@ -67,6 +87,7 @@ ajayramesh @ ubox-r9-1804 ~/tmp/cudnn-10.2-linux-x64-v7.6.5.32
 &lt;span class=&quot;nb&quot;&gt;chmod &lt;/span&gt;a+r /usr/local/cuda&lt;span class=&quot;k&quot;&gt;*&lt;/span&gt;/include/cudnn.h /usr/local/cuda&lt;span class=&quot;k&quot;&gt;*&lt;/span&gt;/lib64/libcudnn&lt;span class=&quot;k&quot;&gt;*&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
+&lt;h2 id=&quot;final-version&quot;&gt;Final Version&lt;/h2&gt;
 &lt;p&gt;Using above blogs and my tiny utility script helping a lot to manage multiple version of CUDA to run some old experiments in CV and AI.&lt;/p&gt;
 &lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;ajayramesh @ ubox-r9-1804 /usr/local
 └─ &lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;▶ tree &lt;span class=&quot;nt&quot;&gt;-L&lt;/span&gt; 1
