@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.1.1">Jekyll</generator><link href="https://notesbyair.github.io//feed.xml" rel="self" type="application/atom+xml" /><link href="https://notesbyair.github.io//" rel="alternate" type="text/html" hreflang="en" /><updated>2020-08-27T13:31:05+00:00</updated><id>https://notesbyair.github.io//feed.xml</id><title type="html">Notes by Air</title><subtitle></subtitle><author><name>Ajay Ramesh</name><email>notesbyair@mgmail.com</email></author><entry><title type="html">How to manage multiple versions of Cuda and cuDNN ?</title><link href="https://notesbyair.github.io//blog/cs/2020-05-26-installing-multiple-versions-of-cuda-cudnn/" rel="alternate" type="text/html" title="How to manage multiple versions of Cuda and cuDNN ?" /><published>2020-05-26T00:00:00+00:00</published><updated>2020-08-27T13:31:04+00:00</updated><id>https://notesbyair.github.io//blog/cs/installing-multiple-versions-of-cuda-cudnn</id><content type="html" xml:base="https://notesbyair.github.io//blog/cs/2020-05-26-installing-multiple-versions-of-cuda-cudnn/">&lt;ul id=&quot;markdown-toc&quot;&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.1.1">Jekyll</generator><link href="https://notesbyair.github.io//feed.xml" rel="self" type="application/atom+xml" /><link href="https://notesbyair.github.io//" rel="alternate" type="text/html" hreflang="en" /><updated>2020-08-27T14:47:38+00:00</updated><id>https://notesbyair.github.io//feed.xml</id><title type="html">Notes by Air</title><subtitle></subtitle><author><name>Ajay Ramesh</name><email>notesbyair@mgmail.com</email></author><entry><title type="html">How to manage multiple versions of Cuda and cuDNN ?</title><link href="https://notesbyair.github.io//blog/cs/2020-05-26-installing-multiple-versions-of-cuda-cudnn/" rel="alternate" type="text/html" title="How to manage multiple versions of Cuda and cuDNN ?" /><published>2020-05-26T00:00:00+00:00</published><updated>2020-08-27T14:47:38+00:00</updated><id>https://notesbyair.github.io//blog/cs/installing-multiple-versions-of-cuda-cudnn</id><content type="html" xml:base="https://notesbyair.github.io//blog/cs/2020-05-26-installing-multiple-versions-of-cuda-cudnn/">&lt;ul id=&quot;markdown-toc&quot;&gt;
   &lt;li&gt;&lt;a href=&quot;#references&quot; id=&quot;markdown-toc-references&quot;&gt;References&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;#get-started&quot; id=&quot;markdown-toc-get-started&quot;&gt;Get Started&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;#cuda-installation&quot; id=&quot;markdown-toc-cuda-installation&quot;&gt;CUDA installation&lt;/a&gt;    &lt;ul&gt;
@@ -10,7 +10,7 @@
       &lt;li&gt;&lt;a href=&quot;#script-to-move-cudnn-to-right-folders&quot; id=&quot;markdown-toc-script-to-move-cudnn-to-right-folders&quot;&gt;Script to move cuDNN to right folders&lt;/a&gt;&lt;/li&gt;
     &lt;/ul&gt;
   &lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;#final-version&quot; id=&quot;markdown-toc-final-version&quot;&gt;Final Version&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#final-results&quot; id=&quot;markdown-toc-final-results&quot;&gt;Final Results&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;h2 id=&quot;references&quot;&gt;References&lt;/h2&gt;
@@ -31,7 +31,7 @@
 
 &lt;h2 id=&quot;cuda-installation&quot;&gt;CUDA installation&lt;/h2&gt;
 
-&lt;p&gt;Before starting, we need to download CUDA or follow steps from NVIDIA.&lt;/p&gt;
+&lt;p&gt;Before starting, we need to download CUDA and follow steps from NVIDIA for right version.&lt;/p&gt;
 
 &lt;h4 id=&quot;the-most-important-steps-to-follow-during-cuda-installation&quot;&gt;The most important steps to follow during CUDA installation.&lt;/h4&gt;
 
@@ -45,7 +45,7 @@
 &lt;p&gt;The blogs that I mentioned earlier help a lot, and then I added the below script to make my life even more accessible.&lt;/p&gt;
 
 &lt;blockquote&gt;
-  &lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;vim ~/.bashrc&lt;/code&gt; add below contents to bottom of the file&lt;/p&gt;
+  &lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;touch ~/.bashrc&lt;/code&gt; add below contents to bottom of the file&lt;/p&gt;
 &lt;/blockquote&gt;
 
 &lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c&quot;&gt;# add below to your env bash file.&lt;/span&gt;
@@ -87,8 +87,8 @@ ajayramesh @ ubox-r9-1804 ~/tmp/cudnn-10.2-linux-x64-v7.6.5.32
 &lt;span class=&quot;nb&quot;&gt;chmod &lt;/span&gt;a+r /usr/local/cuda&lt;span class=&quot;k&quot;&gt;*&lt;/span&gt;/include/cudnn.h /usr/local/cuda&lt;span class=&quot;k&quot;&gt;*&lt;/span&gt;/lib64/libcudnn&lt;span class=&quot;k&quot;&gt;*&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;h2 id=&quot;final-version&quot;&gt;Final Version&lt;/h2&gt;
-&lt;p&gt;Using above blogs and my tiny utility script helping a lot to manage multiple version of CUDA to run some old experiments in CV and AI.&lt;/p&gt;
+&lt;h2 id=&quot;final-results&quot;&gt;Final Results&lt;/h2&gt;
+&lt;p&gt;My current system now got CUDA 9.0 to 10.2 versions.&lt;/p&gt;
 &lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;ajayramesh @ ubox-r9-1804 /usr/local
 └─ &lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;▶ tree &lt;span class=&quot;nt&quot;&gt;-L&lt;/span&gt; 1
 &lt;span class=&quot;nb&quot;&gt;.&lt;/span&gt;
@@ -110,10 +110,7 @@ ajayramesh @ ubox-r9-1804 ~/tmp/cudnn-10.2-linux-x64-v7.6.5.32
 └── texlive
 
 16 directories, 0 files
-
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;Let me know for any comments.&lt;/p&gt;</content><author><name>Ajay Ramesh</name><email>notesbyair@mgmail.com</email></author><category term="cs" /></entry><entry><title type="html">Solid Design Principle Revisit</title><link href="https://notesbyair.github.io//blog/cs/2020-05-23-solid-design-principle-revisit/" rel="alternate" type="text/html" title="Solid Design Principle Revisit" /><published>2020-05-23T00:00:00+00:00</published><updated>2020-08-25T02:23:39+00:00</updated><id>https://notesbyair.github.io//blog/cs/solid-design-principle-revisit</id><content type="html" xml:base="https://notesbyair.github.io//blog/cs/2020-05-23-solid-design-principle-revisit/">&lt;ul id=&quot;markdown-toc&quot;&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name>Ajay Ramesh</name><email>notesbyair@mgmail.com</email></author><category term="cs" /></entry><entry><title type="html">Solid Design Principle Revisit</title><link href="https://notesbyair.github.io//blog/cs/2020-05-23-solid-design-principle-revisit/" rel="alternate" type="text/html" title="Solid Design Principle Revisit" /><published>2020-05-23T00:00:00+00:00</published><updated>2020-08-25T02:23:39+00:00</updated><id>https://notesbyair.github.io//blog/cs/solid-design-principle-revisit</id><content type="html" xml:base="https://notesbyair.github.io//blog/cs/2020-05-23-solid-design-principle-revisit/">&lt;ul id=&quot;markdown-toc&quot;&gt;
   &lt;li&gt;&lt;a href=&quot;#single-responsiblity-principle&quot; id=&quot;markdown-toc-single-responsiblity-principle&quot;&gt;Single-Responsiblity Principle&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;#open-closed-principle&quot; id=&quot;markdown-toc-open-closed-principle&quot;&gt;Open-closed Principle&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;#liskov-substitution-principle&quot; id=&quot;markdown-toc-liskov-substitution-principle&quot;&gt;Liskov substitution principle&lt;/a&gt;&lt;/li&gt;
