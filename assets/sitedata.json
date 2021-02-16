@@ -1,5 +1,6 @@
 
 
+
 {
   "pages": [
     {
@@ -42,7 +43,7 @@
   ], 
   "documents": [
     {
-      
+      "image": "/assets/projects/download.JPG",
       "title": "Solid Design Principle Revisit",
       "date": "2020-05-23 00:00:00 +0000",
       "description": "This post is dedicated to those who are trying to learn the SOLID design principle. Some of my quick cases will give you easy ideas, and follow the reference links to understand more.   Five principles of S.O.L.I.D by Robert C. Martin is core and fundamental to any Agile Development or Adaptive software development. Let’s get started.\n",
@@ -66,7 +67,7 @@
     },{
       
       "title": "cs",
-      "date": "2020-08-30 22:28:58 +0000",
+      "date": "2021-02-16 00:25:32 +0000",
       "description": "All Computer Science related blogs\n",
       "content": "Work in progress …\n",
       "categories": [],
